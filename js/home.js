@@ -1,14 +1,1 @@
-$(document).ready(function() {
-   var NavItemListView = Backbone.View.extend({
-       tagName: 'div',
-       className: 'nav-item'
-   });
-
-    var NavListView = Backbone.View.extend({
-        el: '#main-nav'
-    });
-
-    var navContainer = NavListView();
-
-    navContainer.$el.append('hey');
-});
+$(document).ready(function(){var e=Backbone.View.extend({tagName:"div",className:"nav-item"}),n=Backbone.View.extend({el:"#main-nav"}),a=new n,d=new e;a.$el.append(d)});
