@@ -1,15 +1,28 @@
 $(document).ready(function() {
-    var NavItemListView = Backbone.View.extend({
-        tagName: 'div',
+
+    var NavItem = Backbone.Model.extend({
+        url: '../data/nav.json',
         className: 'nav-item'
     });
 
-    var NavListView = Backbone.View.extend({
-        el: '#main-nav'
+    var NavItemCollection = Backbone.Collection.extend({
+        model: NavItem
     });
 
-    var navContainer = new NavListView();
-    var navItem = new NavItemListView();
+    var NavListView = Backbone.View.extend({
+        el: '#main-nav',
 
-    navContainer.$el.append(navItem);
+        initialize: function() {
+            this.render();
+        },
+
+        render: function() {
+            this.$el.html('yo');
+            return this;
+        }
+    });
+
+    // var navCollection = new NavItemCollection;
+    var navContainerView = new NavListView();
+
 });

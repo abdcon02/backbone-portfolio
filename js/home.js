@@ -1,1 +1,1 @@
-$(document).ready(function(){var e=Backbone.View.extend({tagName:"div",className:"nav-item"}),n=Backbone.View.extend({el:"#main-nav"}),a=new n,d=new e;a.$el.append(d)});
+$(document).ready(function(){var e=Backbone.Model.extend({url:"../data/nav.json",className:"nav-item"}),n=(Backbone.Collection.extend({model:e}),Backbone.View.extend({el:"#main-nav",initialize:function(){this.render()},render:function(){return this.$el.html("yo"),this}}));new n});
