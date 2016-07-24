@@ -1,18 +1,22 @@
 [
   {
     "name":"Home",
+    "order": "1",
     "url":"/"
   },
   {
     "name":"Work",
+    "order": "2",
     "url":"/work"
   },
   {
     "name":"Blog",
+    "order": "4",
     "url":"/blog"
   },
   {
     "name":"About",
+    "order": "3",
     "url":"/about"
   }
 ]
