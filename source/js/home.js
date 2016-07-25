@@ -17,7 +17,7 @@ $(document).ready(function() {
 
 
     app.NavListView = Backbone.View.extend({
-        el: "#main-nav",
+        el: ".top-header",
 
 
         initialize: function() {
@@ -31,7 +31,7 @@ $(document).ready(function() {
 
         render: function() {
             var scope = this;
-            this.collection.forEach(function(model) {
+            this.collection.each(function(model) {
                 scope.output(model)
             });
             return this;

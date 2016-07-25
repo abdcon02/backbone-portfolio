@@ -1,0 +1,26 @@
+.page-container {
+  display: flex;
+  flex-flow: column;
+}
+
+
+
+// Control Styles
+
+.top-header {
+  height: 200px;
+  background-color: red;
+  display: inline-block;
+}
+
+.body {
+  height: 200px;
+  background-color: yellow;
+  display: inline-block;
+}
+
+.footer {
+  height: 200px;
+  background-color: blue;
+  display: inline-block;
+}
