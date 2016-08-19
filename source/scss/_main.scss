@@ -13,11 +13,17 @@
   display: inline-block;
 }
 
-.body {
-  height: 200px;
-  background-color: yellow;
-  display: inline-block;
+.project-collection {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
+
+.project-item {
+  flex: 1 1 200px;
+}
+
+
 
 .footer {
   height: 200px;

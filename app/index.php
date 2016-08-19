@@ -11,7 +11,9 @@
     <body>
         <div class="page-container">
             <div class="top-header"></div>
-            <div class="body"></div>
+            <div class="body">
+                <div class="project-collection"></div>
+            </div>
             <div class="footer"></div>
         </div>
     </body>
