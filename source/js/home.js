@@ -55,6 +55,7 @@ $(document).ready(function() {
 
     app.ProjectView = Backbone.View.extend({
         el: ".project-collection",
+        template: _.template( $('.project-collection-template').html() ),
 
         initialize: function() {
             var scope = this;
@@ -68,27 +69,16 @@ $(document).ready(function() {
         render: function() {
             var scope = this;
             this.collection.each(function(model) {
-                scope.output(model)
+                var html = scope.template(model.toJSON());
+                scope.$el.append(html);
             });
             return this;
         },
 
         output: function(model) {
             var url = model.get("url")
-            var shortDescription = model.get("short_description");
             var name = model.get("name");
             var image = model.get("image");
-            var html =
-            "<div class='project-item'>" +
-                "<a href='" + model.get(url) + "'>" +
-                    "<img src='" +  image + "' alt='alt project image' />" +
-                    "<div class='project-item-content'>" +
-                        "<h1>" + name + "</h1>" +
-                        "<p>" + shortDescription + "</p>" +
-                    "</div>" +
-                "</a>" +
-            "</div>";
-            this.$el.append(html);
         }
     })
 
