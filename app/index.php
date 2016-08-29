@@ -12,15 +12,17 @@
         <div class="page-container">
             <div class="top-header"></div>
             <div class="body">
-                <div class="project-collection">
+            <div class="project-collection">
 
-                    <script type="text/template" class="project-collection-template">
-                        <div class="project-item">
+                <script type="text/template" class="project-collection-template">
+                        <div class="project-item <%= featured %>">
                             <a href="<%= url %>">
-                                <img src="<%= image %>" alt="project image" />
+                                <div class="project-item-image">
+                                    <img src="<%= image %>" alt="project image" />
+                                </div>
                                 <div class='project-item-content'>
                                     <h1><%= name %></h1>
-                                    <p><%= short_description %></p>
+                                    <p><%= description %></p>
                                 </div>
                             </a>
                         </div>

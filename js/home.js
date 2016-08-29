@@ -2,6 +2,12 @@ $(document).ready(function() {
 
     // Namespace the objects
     var app = {};
+    app.imagePath = 'http://localhost:8000/images/';
+    app.buildImage = function(object) {
+        if (object.image !== undefined && object.image.indexOf('http') == -1) {
+            object.image = app.imagePath + object.image;
+        }
+    }
 
     app.NavItem = Backbone.Model;
 
@@ -39,14 +45,7 @@ $(document).ready(function() {
 
     new app.NavListView({collection: new app.NavListCollection()});
 
-    app.ProjectItem = Backbone.Model.extend({
-        defaults: {
-            name:'wrong',
-            short_description: 'wrong',
-            url: 'wrong',
-            image: 'wrong'
-        }
-    })
+    app.ProjectItem = Backbone.Model;
 
     app.ProjectCollection = Backbone.Collection.extend({
         model: app.NavItem,
@@ -69,7 +68,18 @@ $(document).ready(function() {
         render: function() {
             var scope = this;
             this.collection.each(function(model) {
-                var html = scope.template(model.toJSON());
+                var json = model.toJSON();
+                app.buildImage(json);
+                if (json.featured) {
+                    json.description = json.long_description;
+                    json.featuredClass = 'featured';
+                } else {
+                    json.description = json.short_description;
+                    json.featuredClass = '';
+                }
+
+
+                var html = scope.template(json);
                 scope.$el.append(html);
             });
             return this;
