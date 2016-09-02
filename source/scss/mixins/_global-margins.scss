@@ -1,0 +1,6 @@
+// Build a centered container
+@mixin container-margin {
+  margin-left: 20px;
+  margin-right: 20px;
+  max-width: $max-container-width;
+}

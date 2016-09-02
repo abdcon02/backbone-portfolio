@@ -1,4 +1,7 @@
+@import "vars";
+@import "mixins/global-margins";
 @import "main";
+@import "global";
 @import "normalize";
 
 @include normalize();

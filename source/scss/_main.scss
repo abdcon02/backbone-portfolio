@@ -2,15 +2,22 @@
   display: flex;
   flex-flow: column;
 }
-
-
-
-// Control Styles
-
 .top-header {
   height: 200px;
   background-color: red;
   display: inline-block;
+}
+
+/* ----- Project collection layout ------
+  .project-collection-container
+    .project-collection
+      .project-item (featured)
+        .project-item-image
+        .project-item-content
+*/
+
+.project-collection-container {
+  @include container-margin;
 }
 
 .project-collection {
@@ -21,9 +28,25 @@
 
 .project-item {
   flex: 1 1 200px;
+  border: 1px solid green;
 }
 
+.project-item.featured {
+  flex: 1 1 100%;
 
+  .project-item-image {
+    max-width: 600px;
+  }
+}
+
+.project-item-image {
+  border: 1px solid black;
+  max-width: 400px;
+}
+
+.project-item-content {
+  border: 1px solid black;
+}
 
 .footer {
   height: 200px;

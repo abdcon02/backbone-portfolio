@@ -12,25 +12,26 @@
         <div class="page-container">
             <div class="top-header"></div>
             <div class="body">
-            <div class="project-collection">
-
-                <script type="text/template" class="project-collection-template">
-                        <div class="project-item <%= featured %>">
-                            <a href="<%= url %>">
-                                <div class="project-item-image">
-                                    <img src="<%= image %>" alt="project image" />
+                <div class="project-collection-container">
+                    <div class="project-collection">
+                        <script type="text/template" class="project-collection-template">
+                                <div class="project-item <%= featuredClass %>">
+                                    <a href="<%= url %>">
+                                        <div class="project-item-image">
+                                            <img src="<%= image %>" alt="project image" />
+                                        </div>
+                                        <div class='project-item-content'>
+                                            <h1><%= name %></h1>
+                                            <p><%= description %></p>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class='project-item-content'>
-                                    <h1><%= name %></h1>
-                                    <p><%= description %></p>
-                                </div>
-                            </a>
+                            </script>
+        
                         </div>
-                    </script>
-
+                    </div>
                 </div>
-            </div>
-            <div class="footer"></div>
+            <div class="footer">footer</div>
         </div>
     </body>
     <footer>
