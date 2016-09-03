@@ -78,7 +78,6 @@ $(document).ready(function() {
                     json.featuredClass = '';
                 }
 
-
                 var html = scope.template(json);
                 scope.$el.append(html);
             });

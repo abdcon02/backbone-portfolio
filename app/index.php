@@ -7,6 +7,7 @@
         <script src="lib/jquery-1.12.4.min.js"></script>
         <script src="lib/underscore-1.8.3.min.js"></script>
         <script src="lib/backbone-1.3.3-min.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
     </head>
     <body>
         <div class="page-container">
@@ -16,7 +17,7 @@
                     <div class="project-collection">
                         <script type="text/template" class="project-collection-template">
                                 <div class="project-item <%= featuredClass %>">
-                                    <a href="<%= url %>">
+                                    <a class="item-wrapper" href="<%= url %>">
                                         <div class="project-item-image">
                                             <img src="<%= image %>" alt="project image" />
                                         </div>
@@ -27,7 +28,7 @@
                                     </a>
                                 </div>
                             </script>
-        
+
                         </div>
                     </div>
                 </div>

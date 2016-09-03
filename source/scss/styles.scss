@@ -1,7 +1,12 @@
+/* Normalization for browser consistency */
+@import "normalize";
+@include normalize();
+
+/* Variables and mixins */
 @import "vars";
 @import "mixins/global-margins";
+
+/* Project Stylesheets */
 @import "main";
 @import "global";
-@import "normalize";
 
-@include normalize();

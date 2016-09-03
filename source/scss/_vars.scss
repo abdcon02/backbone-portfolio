@@ -1,2 +1,18 @@
 
 $max-container-width: 1400px;
+
+$small-trim: 15px;
+
+/* -- major breakpoints -- */
+//Large Phone
+$bp-small: 640px;
+//Tablet bp
+$bp-medium: 768px;
+//Large screen pb
+$bp-large: 1024px;
+
+
+
+/* -- fonts -- */
+$f-default: 'Roboto', Verdana, sans-serif;
+$f-special: 'Roboto Condensed', Verdana, sans-serif;
