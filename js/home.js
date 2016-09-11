@@ -1,13 +1,19 @@
-$(document).ready(function() {
+// TODO - document ready was so 2010. Just load the JS in the footer for a faster response time.
 
+$(document).ready(function() {
     // Namespace the objects
     var app = {};
     app.imagePath = 'http://localhost:8000/images/';
+    
     app.buildImage = function(object) {
         if (object.image !== undefined && object.image.indexOf('http') == -1) {
             object.image = app.imagePath + object.image;
         }
     }
+
+////////////////////////////////////////////////
+//    Navigation
+////////////////////////////////////////////////
 
     app.NavItem = Backbone.Model;
 
@@ -15,7 +21,6 @@ $(document).ready(function() {
         model: app.NavItem,
         url: '../data/nav.json'
     });
-
 
     app.NavListView = Backbone.View.extend({
         el: ".top-header",
@@ -45,23 +50,41 @@ $(document).ready(function() {
 
     new app.NavListView({collection: new app.NavListCollection()});
 
-    app.ProjectItem = Backbone.Model;
+////////////////////////////////////////////////
+//    Project List
+////////////////////////////////////////////////
+
+    app.ProjectItem = Backbone.Model.extend({
+
+    });
 
     app.ProjectCollection = Backbone.Collection.extend({
-        model: app.NavItem,
+        model: app.ProjectItem,
         url: '../data/projects.json'
     });
 
     app.ProjectView = Backbone.View.extend({
-        el: ".project-collection",
+        tagName: 'div',
+        className: 'project-collection',
         template: _.template( $('.project-collection-template').html() ),
+        events: {
+          'click': 'onClick'
+        },
+        
+        // When we click a box, remove the current view and load the full box view
+        onClick: function(e) {
+
+            var id = $(e.target).closest('.project-item').data('id');
+            var clickedModel = this.collection.get(id)
+            this.remove();
+            new app.ItemLandingView({model: clickedModel})
+        },
 
         initialize: function() {
             var scope = this;
-            this.collection.fetch({
-                success: function() {
-                    scope.render()
-                }
+            scope.$el.appendTo('#content');
+            this.collection.fetch().then(function() {
+                scope.render();
             })
         },
 
@@ -81,17 +104,36 @@ $(document).ready(function() {
                 var html = scope.template(json);
                 scope.$el.append(html);
             });
-            return this;
-        },
-
-        output: function(model) {
-            var url = model.get("url")
-            var name = model.get("name");
-            var image = model.get("image");
+            // return this;
         }
     })
 
-    new app.ProjectView({collection: new app.ProjectCollection()});
+    // TODO check if it is actually better to instantiate the collection object here and pass it to the view
+    // versus declaring a new collection property in the view object
+    app.ProjectItemCollection = new app.ProjectCollection;
+    new app.ProjectView({collection: app.ProjectItemCollection});
+
+////////////////////////////////////////////////
+//    Item Landing
+////////////////////////////////////////////////
+
+    app.ItemLandingView = Backbone.View.extend({
+        tagName: 'div',
+        className: 'item-landing',
+        template: _.template( $('.item-landing-template').html() ),
+
+        initialize: function() {
+            this.$el.appendTo('#content');
+            this.render();
+        },
+
+        render: function() {
+            var json = this.model.toJSON();
+            app.buildImage(json);
+            var html = this.template(json);
+            this.$el.append(html);
+        }
+    })
 
 
     // var hello = Backbone.View.extend({

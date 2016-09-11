@@ -1,14 +1,17 @@
 [
   {
+    "id": 1,
     "name":"Minesweeper",
     "url":"#",
     "order": 1,
     "short_description": "This app will recreate the classic game of minesweeper.",
     "long_description": "This app will recreate the classic game of minesweeper. Users will be able to click tiles to reveal either a bomb or a clue to the number of bombs in the tiles around it. The goal is to clear the entire board without flipping over a tile with a bomb. This ends the game. This is a rebuild of the classic minesweeper game. We built it over the course of two days, just one week in our AngularJS curriculum. The whiteboard was our most helpful tool for this challenge, allowing us to break down and draw out every desired function. Then we could use this visual BBD outline to construct our code.",
     "image": "minesweeper2.png",
-    "featured": true
+    "featured": true,
+    "type_id": "game"
   },
   {
+    "id": 2,
     "name":"Square Chase",
     "url":"#",
     "order": 1,
@@ -18,6 +21,7 @@
     "featured": false
   },
   {
+    "id": 3,
     "name":"Pizza Order",
     "url":"#",
     "order": 1,

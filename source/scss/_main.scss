@@ -9,19 +9,18 @@
   display: inline-block;
 }
 
-/* ----- Project collection layout ------
-  .project-collection-container
-    .project-collection
-      .project-item (featured)
-        a.item-wrapper
-          .project-item-image
-          .project-item-content
-*/
-
-.project-collection-container {
+.content-container {
   padding: $small-trim 0;
   @include container-margin;
 }
+
+/* ----- Project collection layout ------
+      .project-collection
+        .project-item (featured)
+          a.item-wrapper
+            .project-item-image
+            .project-item-content
+*/
 
 .project-collection {
   display: flex;
@@ -37,6 +36,14 @@
   h1 {
     text-align: center;
   }
+
+  &:hover {
+    @include hoverBorder;
+  }
+}
+
+.item-wrapper {
+  cursor: pointer;
 }
 
 .project-item.featured {
@@ -68,6 +75,10 @@
     flex: 1 1 100%;
   }
 }
+
+/* ----- Landing Item Layout ------
+
+*/
 
 /* -------------------- */
 .footer {

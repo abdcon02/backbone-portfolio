@@ -1,18 +1,19 @@
-
+/* ------ margins and spacing ------ */
 $max-container-width: 1400px;
-
 $small-trim: 15px;
 
-/* -- major breakpoints -- */
-//Large Phone
+/* ------ breakpoints ------ */
+
+// Large Phone
 $bp-small: 640px;
-//Tablet bp
+// Tablet
 $bp-medium: 768px;
-//Large screen pb
+// Large screen
 $bp-large: 1024px;
 
+/* ------ colors ------ */
+$c-border-hover: red;
 
-
-/* -- fonts -- */
+/* ------ fonts ------ */
 $f-default: 'Roboto', Verdana, sans-serif;
 $f-special: 'Roboto Condensed', Verdana, sans-serif;

@@ -13,29 +13,44 @@
         <div class="page-container">
             <div class="top-header"></div>
             <div class="body">
-                <div class="project-collection-container">
-                    <div class="project-collection">
-                        <script type="text/template" class="project-collection-template">
-                                <div class="project-item <%= featuredClass %>">
-                                    <a class="item-wrapper" href="<%= url %>">
-                                        <div class="project-item-image">
-                                            <img src="<%= image %>" alt="project image" />
-                                        </div>
-                                        <div class='project-item-content'>
-                                            <h1><%= name %></h1>
-                                            <p><%= description %></p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </script>
+                <div class="content-container">
+                    <div id="content" class="content-wrapper">
 
-                        </div>
                     </div>
                 </div>
             <div class="footer">footer</div>
         </div>
     </body>
     <footer>
+        <script type="text/template" class="project-collection-template">
+            <div data-id="<%= id %>" class="project-item <%= featuredClass %>">
+                <div class="item-wrapper">
+                    <div class="project-item-image">
+                        <img src="<%= image %>" alt="project image" />
+                    </div>
+                    <div class='project-item-content'>
+                        <h1><%= name %></h1>
+                        <p><%= description %></p>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script type="text/template" class="item-landing-template">
+            <div class="landing-item">
+                <div class="item-wrapper">
+                    <div class="project-item-image">
+                        <img src="<%= image %>" alt="project image" />
+                    </div>
+                    <div class="landing-actions">
+                        <h1><%= name %></h1>
+                    </div>
+                    <div class='project-item-content'>
+                        <div class="button back-to-project-collection">Back</div>
+                        <p><%= long_description %></p>
+                    </div>
+                </div>
+            </div>
+        </script>
         <script src="js/home.js"></script>
     </footer>
 </html>
