@@ -3,7 +3,10 @@
 $(document).ready(function() {
     // Namespace the objects
     var app = {};
-    app.imagePath = 'http://localhost:8000/images/';
+    app.baseUrl = 'http://localhost:8000/'
+    app.imagePath = app.baseUrl + 'images/';
+    app.dataPath = app.baseUrl + 'data/';
+
     
     app.buildImage = function(object) {
         if (object.image !== undefined && object.image.indexOf('http') == -1) {
@@ -19,7 +22,7 @@ $(document).ready(function() {
 
     app.NavListCollection = Backbone.Collection.extend({
         model: app.NavItem,
-        url: '../data/nav.json'
+        url: app.dataPath + 'nav.json'
     });
 
     app.NavListView = Backbone.View.extend({
@@ -60,7 +63,7 @@ $(document).ready(function() {
 
     app.ProjectCollection = Backbone.Collection.extend({
         model: app.ProjectItem,
-        url: '../data/projects.json'
+        url: app.dataPath + 'projects.json'
     });
 
     app.ProjectView = Backbone.View.extend({
@@ -122,6 +125,15 @@ $(document).ready(function() {
         className: 'item-landing',
         template: _.template( $('.item-landing-template').html() ),
 
+        events: {
+            'click .back-to-project-collection': 'clickBackButton'
+        },
+
+        clickBackButton: function(e) {
+            this.remove();
+            new app.ProjectView({collection: app.ProjectItemCollection});
+        },
+
         initialize: function() {
             this.$el.appendTo('#content');
             this.render();
@@ -134,6 +146,10 @@ $(document).ready(function() {
             this.$el.append(html);
         }
     })
+
+    setTimeout( function() {
+        $('[data-id=1]').click()
+    }, 10)
 
 
     // var hello = Backbone.View.extend({

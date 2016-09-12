@@ -53,3 +53,20 @@ h4 {
   font-size: 16px;
   font-weight: bold;
 }
+
+.button {
+  border: 2px solid $c-button-border;
+  background: $c-button-background;
+  display: inline-block;
+  text-transform: uppercase;
+  font-family: $f-special;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+
+  &:hover {
+    background: lighten($c-button-background, 10);
+  }
+}
