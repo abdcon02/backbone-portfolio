@@ -25,7 +25,6 @@ const themePaths = Object.freeze({
 })
 
 const sourcePaths = Object.freeze({
-    browserSass: projectTheme + 'source/scss/styles.scss',
     sass: projectTheme + 'source/scss/**/*.scss',
     js : projectTheme + 'source/js/**/*.js',
     images: projectTheme + 'source/images/*',
@@ -34,33 +33,26 @@ const sourcePaths = Object.freeze({
 })
 
 
-gulp.task('default', ['compileSass', 'compressImages', 'compressJs'])
+gulp.task('default', ['compileSass', 'compileImages', 'compileJs'])
 
-const sassTask = function(srcPaths) {
-    return gulp.src(srcPaths)
-        .pipe(sourcemaps.init())
+gulp.task('compileSass', function() {
+    return gulp.src(sourcePaths.sass)
+        .pipe(config.production ? gutil.noop() : sourcemaps.init())
         .pipe(sass({
             includePaths:
                 [
                     require('bourbon').includePaths
-                ]
+                ],
+            outputStyle: config.production ? 'compressed' : 'nested'
         })
             .on('error', sass.logError))
         .pipe(autoprefixer())
-        .pipe(sourcemaps.write('./source-maps'))
+        .pipe(config.production ? gutil.noop() : sourcemaps.write())
         .pipe(gulp.dest(themePaths.css))
         .pipe(config.production ? gutil.noop() : livereload())
-}
-
-gulp.task('compileBrowserSass', function() {
-    return sassTask(sourcePaths.browserSass)
 })
 
-gulp.task('compileSass', function() {
-    return sassTask(sourcePaths.sass)
-})
-
-gulp.task('compressImages', function() {
+gulp.task('compileImages', function() {
     return gulp.src(sourcePaths.images)
         .pipe(imagemin({
             progressive: true,
@@ -70,15 +62,25 @@ gulp.task('compressImages', function() {
         .pipe(config.production ? livereload() : gutil.noop())
 })
 
-gulp.task('compressJs', function() {
+gulp.task('compileJs', function() {
     return gulp.src(sourcePaths.js)
-        .pipe(config.production ? uglify({compress: config.production, mangle: config.production}) : gutil.noop())
+        .pipe(config.production ? gutil.noop() : sourcemaps.init())
+        .pipe(uglify({
+            mangle: config.production,
+            compress: config.production ? {} : false,
+            preserveComments: config.production ? 'license' : 'all',
+            output: config.production ? {} : {
+                beautify: true,
+                bracketize: true
+            }
+        }))
+        .pipe(config.production ? gutil.noop() : sourcemaps.write())
         .pipe(gulp.dest(themePaths.js))
-        .pipe(config.production ? livereload() : gutil.noop())
 })
 
 gulp.task('watch', function() {
     gutil.log('starting to watch ' + sourcePaths.path)
     livereload.listen()
-    gulp.watch(sourcePaths.path, ['compileBrowserSass', 'compressJs'])
+    gulp.watch(sourcePaths.path, ['compileSass', 'compileJs'])
 })
+////////////////
