@@ -8,6 +8,8 @@
 @import "mixins/custom";
 
 /* Project Stylesheets */
-@import "main";
 @import "global";
+@import "components/main-page";
+@import "components/landing";
+@import "components/elements";
 

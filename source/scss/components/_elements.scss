@@ -1,0 +1,22 @@
+.button {
+  background: $c-button-background;
+  border: 2px solid $c-button-border;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $f-special;
+  font-weight: bold;
+  font-size: 16px;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0 30px;
+  text-transform: uppercase;
+
+  p {
+    line-height: 30px;
+    margin: 0
+  }
+
+  &:hover {
+    background: lighten($c-button-background, 10);
+  }
+}

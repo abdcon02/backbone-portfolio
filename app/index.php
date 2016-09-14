@@ -24,30 +24,30 @@
     <footer>
         <script type="text/template" class="project-collection-template">
             <div data-id="<%= id %>" class="project-item <%= featuredClass %>">
-                <div class="item-wrapper">
-                    <div class="project-item-image">
-                        <img src="<%= image %>" alt="project image" />
-                    </div>
-                    <div class='project-item-content'>
-                        <h1><%= name %></h1>
-                        <p><%= description %></p>
-                    </div>
+                <div class="project-item-image">
+                    <img src="<%= image %>" alt="project image" />
+                </div>
+                <div class='project-item-content'>
+                    <h1><%= name %></h1>
+                    <p><%= description %></p>
                 </div>
             </div>
         </script>
         <script type="text/template" class="item-landing-template">
             <div class="landing-item">
-                <div class="item-wrapper">
-                    <div class="project-item-image">
-                        <img src="<%= image %>" alt="project image" />
+                <div class="landing-image">
+                    <img src="<%= image %>" alt="project image" />
+                </div>
+                <div class="landing-actions">
+                    <h1><%= name %></h1>
+                    <div class="actions-container">
+                        <div class="button load-project"><p>Play Game</p></div>
+                        <div class="button load-github"><p>View Github Project</p></div>
                     </div>
-                    <div class="landing-actions">
-                        <h1><%= name %></h1>
-                    </div>
-                    <div class='project-item-content'>
-                        <div class="button back-to-project-collection">Back</div>
-                        <p><%= long_description %></p>
-                    </div>
+                </div>
+                <div class='landing-content'>
+                    <div class="button back-to-project-collection"><p>Back</p></div>
+                    <p><%= long_description %></p>
                 </div>
             </div>
         </script>

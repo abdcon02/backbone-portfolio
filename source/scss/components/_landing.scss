@@ -1,0 +1,43 @@
+/* ----- Landing Item Layout ------
+  .item-landing-template
+    .landing-item
+      .landing-image
+      .landing-actions
+        .actions-container
+      .landing-content
+*/
+
+.landing-item {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 1 1 100%;
+  border: 3px solid green;
+}
+
+.landing-image {
+  flex: 1 1 40%;
+}
+
+.landing-actions {
+  flex: 1 1 25%;
+  text-align: center;
+}
+
+.actions-container {
+  display: inline-block;
+  width: 70%;
+
+  .button {
+    width: 100%;
+  }
+}
+
+.landing-content {
+  flex: 1 1 35%;
+}
+
+@media screen and (min-width: $bp-small) {
+
+}
+
+
