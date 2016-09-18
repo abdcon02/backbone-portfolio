@@ -25,9 +25,11 @@
 
 .actions-container {
   display: inline-block;
-  width: 70%;
-
+  max-width: 250px;
+  width: 80%;
   .button {
+    padding: 5px;
+    min-width: 150px;
     width: 100%;
   }
 }

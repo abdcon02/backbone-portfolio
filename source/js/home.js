@@ -6,6 +6,7 @@ $(document).ready(function() {
     app.baseUrl = 'http://localhost:8000/'
     app.imagePath = app.baseUrl + 'images/';
     app.dataPath = app.baseUrl + 'data/';
+    app.projectPath = app.baseUrl + 'app/projects/'
 
     
     app.buildImage = function(object) {
@@ -57,9 +58,7 @@ $(document).ready(function() {
 //    Project List
 ////////////////////////////////////////////////
 
-    app.ProjectItem = Backbone.Model.extend({
-
-    });
+    app.ProjectItem = Backbone.Model;
 
     app.ProjectCollection = Backbone.Collection.extend({
         model: app.ProjectItem,
@@ -76,7 +75,6 @@ $(document).ready(function() {
         
         // When we click a box, remove the current view and load the full box view
         onClick: function(e) {
-
             var id = $(e.target).closest('.project-item').data('id');
             var clickedModel = this.collection.get(id)
             this.remove();
@@ -126,7 +124,14 @@ $(document).ready(function() {
         template: _.template( $('.item-landing-template').html() ),
 
         events: {
-            'click .back-to-project-collection': 'clickBackButton'
+            'click .back-to-project-collection': 'clickBackButton',
+            'click .load-project': 'loadProject'
+        },
+
+        loadProject: function(e) {
+            var projectUrl = this.model.get("project_url");
+            var fullProjectUrl = app.projectPath + projectUrl;
+            window.location.href = fullProjectUrl;
         },
 
         clickBackButton: function(e) {
