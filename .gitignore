@@ -1,6 +1,13 @@
-node_modules/
+### Compiled Assets
 css/*
 js/*
-images/*
 
+### NPM Packages
+node_modules/
+
+### Images
+images/*
 source/images
+
+### Projects
+app/projects

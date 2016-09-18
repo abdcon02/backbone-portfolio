@@ -22,6 +22,14 @@
         </div>
     </body>
     <footer>
+        <script type="text/template" class="page-header-template">
+            <div class="nav-item nav-name">
+                <p>Connor Abdelnoor</p>
+            </div>
+            <div class="nav-item">
+                <p><%= name %></p>
+            </div>
+        </script>
         <script type="text/template" class="project-collection-template">
             <div data-id="<%= id %>" class="project-item <%= featuredClass %>">
                 <div class="project-item-image">
@@ -42,12 +50,12 @@
                     <h1><%= name %></h1>
                     <div class="actions-container">
                         <div class="button load-project"><p>Play Game</p></div>
-                        <div class="button load-github"><p>View Github Project</p></div>
+                        <div class="button load-github"><a href="<%= github_url %>" target="_blank">View Github Project</a></div>
                     </div>
                 </div>
                 <div class='landing-content'>
-                    <div class="button back-to-project-collection"><p>Back</p></div>
                     <p><%= long_description %></p>
+                    <div class="button back-to-project-collection"><p>Back</p></div>
                 </div>
             </div>
         </script>
