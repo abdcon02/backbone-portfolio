@@ -2,9 +2,8 @@
   {
     "id": 1,
     "name":"Minesweeper",
-    "url":"#",
-    "order": 1,
-    "short_description": "This app will recreate the classic game of minesweeper.",
+    "tagline": "The classic game built in AngularJS",
+    "short_description": "Relive your days of whittling away time in an office cubicle playing classic Minesweeper with this recreation. Win by unveiling all tiles which do not conceal mines, or flagging all the tiles which do.",
     "long_description": "This app will recreate the classic game of minesweeper. Users will be able to click tiles to reveal either a bomb or a clue to the number of bombs in the tiles around it. The goal is to clear the entire board without flipping over a tile with a bomb. This ends the game. This is a rebuild of the classic minesweeper game. We built it over the course of two days, just one week in our AngularJS curriculum. The whiteboard was our most helpful tool for this challenge, allowing us to break down and draw out every desired function. Then we could use this visual BBD outline to construct our code.",
     "image": "minesweeper2.png",
     "featured": true,
@@ -15,6 +14,18 @@
   {
     "id": 2,
     "name":"Square Chase",
+    "tagline": "",
+    "short_description": "",
+    "long_description": "",
+    "image": "http://placehold.it/350x150",
+    "featured": false,
+    "type_id": "game",
+    "github_url": "",
+    "project_url": ""
+  },
+  {
+    "id": 3,
+    "name":"Pizza Order",
     "url":"#",
     "order": 1,
     "short_description": "Hello World",
@@ -23,10 +34,27 @@
     "featured": false
   },
   {
-    "id": 3,
-    "name":"Pizza Order",
+    "id": 4,
+    "name":"Triangle Checker",
     "url":"#",
-    "order": 1,
+    "short_description": "Hello World",
+    "long_description": "A Longer Hello World",
+    "image": "http://placehold.it/350x150",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "name":"Student Roster",
+    "url":"#",
+    "short_description": "Hello World",
+    "long_description": "A Longer Hello World",
+    "image": "http://placehold.it/350x150",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "name":"Repeat Word Counter",
+    "url":"#",
     "short_description": "Hello World",
     "long_description": "A Longer Hello World",
     "image": "http://placehold.it/350x150",

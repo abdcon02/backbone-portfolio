@@ -11,23 +11,29 @@
     </head>
     <body>
         <div class="page-container">
-            <div class="top-header"></div>
-            <div class="body">
-                <div class="content-container">
-                    <div id="content" class="content-wrapper">
-
+            <div class="header-container">
+                <div class="navigation">
+                    <div class="nav-item nav-name">
+                        <span>Connor Abdelnoor</span>
                     </div>
                 </div>
-            <div class="footer">footer</div>
+            </div>
+            <div class="body">
+                <div class="content-container">
+                    <div id="content" class="content-wrapper"></div>
+                </div>
+            <div class="footer">
+                <div class="social-icons">
+                    <a href="#" class="icon icon-linkedin">Linkedin</a>
+                    <a href="#" class="icon icon-github">Github</a>
+                </div>
+            </div>
         </div>
     </body>
     <footer>
-        <script type="text/template" class="page-header-template">
-            <div class="nav-item nav-name">
-                <p>Connor Abdelnoor</p>
-            </div>
+        <script type="text/template" class="item-navigation-template">
             <div class="nav-item">
-                <p><%= name %></p>
+                <span><%= name %></span>
             </div>
         </script>
         <script type="text/template" class="project-collection-template">
@@ -37,7 +43,8 @@
                 </div>
                 <div class='project-item-content'>
                     <h1><%= name %></h1>
-                    <p><%= description %></p>
+                    <h4 class="tagline"><%= tagline %></h4>
+                    <p><%= short_description %></p>
                 </div>
             </div>
         </script>
@@ -48,14 +55,15 @@
                 </div>
                 <div class="landing-actions">
                     <h1><%= name %></h1>
+                    <h4><%= tagline %></h4>
                     <div class="actions-container">
                         <div class="button load-project"><p>Play Game</p></div>
                         <div class="button load-github"><a href="<%= github_url %>" target="_blank">View Github Project</a></div>
                     </div>
                 </div>
                 <div class='landing-content'>
-                    <p><%= long_description %></p>
                     <div class="button back-to-project-collection"><p>Back</p></div>
+                    <p><%= long_description %></p>
                 </div>
             </div>
         </script>

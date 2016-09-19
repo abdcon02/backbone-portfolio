@@ -27,29 +27,25 @@ $(document).ready(function() {
     });
 
     app.NavListView = Backbone.View.extend({
-        el: ".top-header",
+        el: '.navigation',
+        template: _.template( $('.item-navigation-template').html() ),
 
         initialize: function() {
             var scope = this;
-            this.collection.fetch({
-                success: function() {
-                    scope.render()
-                }
+            this.collection.fetch().then(function() {
+                scope.render();
             })
         },
 
         render: function() {
             var scope = this;
             this.collection.each(function(model) {
-                scope.output(model)
+                var json = model.toJSON();
+                var html = scope.template(json);
+                scope.$el.append(html);
             });
             return this;
         },
-
-        output: function(model) {
-            var html = "<div>" + model.get("name") + "</div>";
-            this.$el.append(html);
-        }
     });
 
     new app.NavListView({collection: new app.NavListCollection()});
@@ -58,7 +54,11 @@ $(document).ready(function() {
 //    Project List
 ////////////////////////////////////////////////
 
-    app.ProjectItem = Backbone.Model;
+    app.ProjectItem = Backbone.Model.extend({
+        defaults: {
+            tagline: ""
+        }
+    });
 
     app.ProjectCollection = Backbone.Collection.extend({
         model: app.ProjectItem,
@@ -94,18 +94,12 @@ $(document).ready(function() {
             this.collection.each(function(model) {
                 var json = model.toJSON();
                 app.buildImage(json);
-                if (json.featured) {
-                    json.description = json.long_description;
-                    json.featuredClass = 'featured';
-                } else {
-                    json.description = json.short_description;
-                    json.featuredClass = '';
-                }
-
+                // create featured class
+                json.featured ? json.featuredClass = 'featured' : json.featuredClass = '';
                 var html = scope.template(json);
                 scope.$el.append(html);
             });
-            // return this;
+            return this;
         }
     })
 
@@ -152,26 +146,8 @@ $(document).ready(function() {
         }
     })
 
-    setTimeout( function() {
-        $('[data-id=1]').click()
-    }, 10)
-
-
-    // var hello = Backbone.View.extend({
-    //
-    //     el: '#container',
-    //
-    //     template: _.template("<h1> Hello <%= anything %> </h1>"),
-    //
-    //     initialize: function(){
-    //         this.render();
-    //     },
-    //
-    //     render: function(){
-    //         this.$el.html(this.template({anything: 'tester'}));
-    //     }
-    // });
-    //
-    // var helloView = new hello();
+    // setTimeout( function() {
+    //     $('[data-id=1]').click()
+    // }, 10)
 
 });

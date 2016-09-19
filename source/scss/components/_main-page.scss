@@ -37,6 +37,12 @@
   }
 }
 
+.project-item:not(.featured) {
+  h4 {
+    display: none;
+  }
+}
+
 .project-item.featured {
   width: 100%;
 }

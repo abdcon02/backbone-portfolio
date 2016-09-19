@@ -5,6 +5,7 @@
       .landing-actions
         .actions-container
       .landing-content
+        .buttonback-to-project-collection
 */
 
 .landing-item {
@@ -27,8 +28,10 @@
   display: inline-block;
   max-width: 250px;
   width: 80%;
+
   .button {
     padding: 5px;
+    margin-bottom: 10px;
     min-width: 150px;
     width: 100%;
   }
@@ -36,6 +39,12 @@
 
 .landing-content {
   flex: 1 1 35%;
+  align-items: baseline;
+  padding: 25px;
+}
+
+.back-to-project-collection {
+  float: right;
 }
 
 @media screen and (min-width: $bp-small) {

@@ -1,15 +1,11 @@
 [
   {
-    "name":"Home",
+    "name":"Work",
     "order": "1"
   },
   {
-    "name":"Work",
+    "name":"Resume",
     "order": "2"
-  },
-  {
-    "name":"Blog",
-    "order": "4"
   },
   {
     "name":"About",

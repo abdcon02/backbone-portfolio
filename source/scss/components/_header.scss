@@ -1,7 +1,39 @@
 /* ----- Portfolio Header ------*/
 
-.top-header {
+/* ---- header structure
+    .header-container
+      .navigation
+        .nav-item.nav-name
+        .nav-item
+*/
+
+.header-container {
   width: 100%;
-  background-color: red;
   display: inline-block;
+}
+
+.navigation {
+  @include container-margin;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  padding: 15px 10px;
+  font-size: 24px;
+  font-family: $f-special;
+  font-weight: bold;
+}
+
+.nav-item:not(.nav-name) {
+  cursor: pointer;
+}
+
+.nav-name {
+  font-size: 32px;
+  flex: 1 1 50%;
 }
