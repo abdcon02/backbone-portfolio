@@ -54,22 +54,22 @@
                 <div class="landing-image">
                     <img src="<%= image %>" alt="project image" />
                 </div>
-                <div class="landing-actions">
-                    <h1><%= name %></h1>
-                    <h4><%= tagline %></h4>
-                    <div class="actions-container">
+                <div class="landing-content">
+                    <div class="landing-top">
+                        <h1><%= name %></h1>
+                        <h4><%= tagline %></h4>
+                    </div>
+
+                    <div class="landing-actions">
                         <div class="button load-project"><p>Play Game</p></div>
                         <div class="button load-github"><a href="<%= github_url %>" target="_blank">View Github Project</a></div>
                     </div>
-                </div>
-                <div class='landing-content'>
-                    <div>
+                    <div class='landing-info'>
+                        <p><%= long_description %></p>
                         <div class="button back-to-project-collection"><p>Back</p></div>
                     </div>
-                    <div>
-                        <p><%= long_description %></p>
-                    </div>
                 </div>
+
             </div>
         </script>
         <script src="js/home.js"></script>

@@ -2,62 +2,61 @@
   .item-landing-template
     .landing-item
       .landing-image
-      .landing-actions
-        .actions-container
       .landing-content
-        .buttonback-to-project-collection
+        .landing-top
+        .landing-actions
+        .landing-info
 */
 
 .landing-item {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   flex: 1 1 100%;
   border: 3px solid green;
 }
 
 .landing-image {
-  flex: 1 1 40%;
-}
-
-.landing-actions {
-  flex: 1 1 25%;
-  text-align: center;
-}
-
-.actions-container {
-  display: inline-block;
-  max-width: 250px;
-  width: 80%;
-
-  .button {
-    padding: 5px;
-    margin-bottom: 10px;
-    min-width: 150px;
-    width: 100%;
-  }
+  flex: 1 1 100%;
+  border: 1px solid red;
 }
 
 .landing-content {
-  flex: 1 1 35%;
-  align-items: baseline;
-  padding: 25px;
+  padding: $small-trim;
+}
+
+.landing-top {
+  text-align: center;
+}
+
+.landing-actions {
+  text-align: center;
+  margin-bottom: 15px;
 
   .button {
-    margin-bottom: 15px;
-  }
-
-  > div {
-    display: inline-block;
-    width: 100%;
+    margin-bottom: 10px;
   }
 }
 
-.back-to-project-collection {
-  float: right;
+.landing-info {
+  text-align: center;
+
+  p {
+    text-align: left;
+  }
 }
 
-@media screen and (min-width: $bp-small) {
+@media screen and (min-width: $bp-medium) {
+  .landing-image {
+    flex: 1 1 50%;
+  }
 
+  .landing-content {
+    flex: 1 1 50%;
+  }
+
+  .back-to-project-collection {
+    float: right;
+  }
 }
 
 
