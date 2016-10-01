@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <title>Connor Abdelnoor</title>
         <link rel="stylesheet" href="../css/styles.css" type="text/css"/>
         <script src="lib/jquery-1.12.4.min.js"></script>
@@ -62,8 +63,12 @@
                     </div>
                 </div>
                 <div class='landing-content'>
-                    <div class="button back-to-project-collection"><p>Back</p></div>
-                    <p><%= long_description %></p>
+                    <div>
+                        <div class="button back-to-project-collection"><p>Back</p></div>
+                    </div>
+                    <div>
+                        <p><%= long_description %></p>
+                    </div>
                 </div>
             </div>
         </script>

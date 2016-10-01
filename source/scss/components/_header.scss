@@ -7,11 +7,6 @@
         .nav-item
 */
 
-.header-container {
-  width: 100%;
-  display: inline-block;
-}
-
 .navigation {
   @include container-margin;
   border-bottom: 1px solid black;

@@ -41,6 +41,15 @@
   flex: 1 1 35%;
   align-items: baseline;
   padding: 25px;
+
+  .button {
+    margin-bottom: 15px;
+  }
+
+  > div {
+    display: inline-block;
+    width: 100%;
+  }
 }
 
 .back-to-project-collection {

@@ -2,9 +2,9 @@
   {
     "id": 1,
     "name":"Minesweeper",
-    "tagline": "The classic game built in AngularJS",
+    "tagline": "The classic game, but in AngularJS",
     "short_description": "Relive your days of whittling away time in an office cubicle playing classic Minesweeper with this recreation. Win by unveiling all tiles which do not conceal mines, or flagging all the tiles which do.",
-    "long_description": "This app will recreate the classic game of minesweeper. Users will be able to click tiles to reveal either a bomb or a clue to the number of bombs in the tiles around it. The goal is to clear the entire board without flipping over a tile with a bomb. This ends the game. This is a rebuild of the classic minesweeper game. We built it over the course of two days, just one week in our AngularJS curriculum. The whiteboard was our most helpful tool for this challenge, allowing us to break down and draw out every desired function. Then we could use this visual BBD outline to construct our code.",
+    "long_description": "This program will recreate the classic game of minesweeper. As a user, you can click tiles to reveal either a bomb or a clue to the number of bombs in the tiles around it. The goal is to clear the entire board without flipping over a tile with a bomb. This ends the game. The program uses an Angular Factory to create the board and its various properties such as tiles, bombs, difficulty, and size. A controller handles the playing logic and includes one of my proudest accomplishments. A recursive function that reveals tiles and calculates appropriate clues.",
     "image": "minesweeper2.png",
     "featured": true,
     "type_id": "game",
@@ -13,15 +13,15 @@
   },
   {
     "id": 2,
-    "name":"Square Chase",
-    "tagline": "",
-    "short_description": "",
-    "long_description": "",
+    "name":"Squid Chase",
+    "tagline": "Get that Squid!",
+    "short_description": "Squid Chase is a challenging game built using the p5.js library. p5.js follows the goals of Java&#39;s processing library which attempts to make coding accessible to artists and designers. Squid Chase mainly makes use of objects spatial awareness on the page.",
+    "long_description": "This game challenges the user to chase an accelerating squid around the screen, accruing points for keeping the mouse in the target. It was built using the p5.js library. p5.js follows the goals of Java&#39;s processing library which attempts to make coding accessible to artists and designers. By adding vector properties to the squid object, and remembering some geometry from math class, it was possible to create a bouncing target. After adding some more logic for mouse events, and a score tracker, a nice little time wasting game was created.",
     "image": "http://placehold.it/350x150",
     "featured": false,
     "type_id": "game",
-    "github_url": "",
-    "project_url": ""
+    "github_url": "https://github.com/abdcon02/April29_SquareGame_p5",
+    "project_url": "/"
   },
   {
     "id": 3,

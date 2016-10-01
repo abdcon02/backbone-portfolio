@@ -146,8 +146,8 @@ $(document).ready(function() {
         }
     })
 
-    // setTimeout( function() {
-    //     $('[data-id=1]').click()
-    // }, 10)
+    setTimeout( function() {
+        $('[data-id=1]').click()
+    }, 10)
 
 });
