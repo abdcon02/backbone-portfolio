@@ -9,15 +9,14 @@
 */
 
 .landing-item {
+  @include hoverBorder(green, false);
   display: flex;
   flex-flow: row wrap;
   flex: 1 1 100%;
-  border: 3px solid green;
 }
 
 .landing-image {
   flex: 1 1 100%;
-  border: 1px solid red;
 }
 
 .landing-content {

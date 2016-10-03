@@ -1,3 +1,9 @@
-@mixin hoverBorder() {
-  box-shadow: 0 0 5px 0 $c-border-hover;
+@mixin hoverBorder($color, $hover: true) {
+  border: 3px solid green;
+
+  @if $hover {
+    &:hover {
+      box-shadow: 0 0 5px 0 green;
+    }
+  }
 }

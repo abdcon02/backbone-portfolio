@@ -10,7 +10,9 @@ const   gulp         = require('gulp'),
         imagemin     = require('gulp-imagemin'),
         sourcemaps   = require('gulp-sourcemaps'),
         concat       = require('gulp-concat'),
-        livereload   = require('gulp-livereload')
+        livereload   = require('gulp-livereload'),
+        bourbon      = require('bourbon'),
+        octicons     = require("octicons")
 
 const projectTheme = './'
 
@@ -41,7 +43,7 @@ gulp.task('compileSass', function() {
         .pipe(sass({
             includePaths:
                 [
-                    require('bourbon').includePaths
+                    bourbon.includePaths
                 ],
             outputStyle: config.production ? 'compressed' : 'nested'
         })
@@ -50,6 +52,10 @@ gulp.task('compileSass', function() {
         .pipe(config.production ? gutil.noop() : sourcemaps.write())
         .pipe(gulp.dest(themePaths.css))
         .pipe(config.production ? gutil.noop() : livereload())
+})
+
+gulp.task('tester', function() {
+    gutil.log(ob   cticons);
 })
 
 gulp.task('compileImages', function() {
@@ -83,4 +89,5 @@ gulp.task('watch', function() {
     livereload.listen()
     gulp.watch(sourcePaths.path, ['compileSass', 'compileJs'])
 })
+
 ////////////////

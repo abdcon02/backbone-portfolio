@@ -1,8 +1,8 @@
+/* ----- Page Layout ------ */
+
 .page-container {
   width: 100%;
 }
-
-
 
 .content-container {
   padding: $small-trim 0;
@@ -24,19 +24,15 @@
 }
 
 .project-item {
+  @include hoverBorder(green);
   display: flex;
   flex-flow: row wrap;
   flex: 1 1 100%;
-  border: 3px solid green;
   cursor: pointer;
   margin-bottom: 20px;
 
   h1, h4 {
     text-align: center;
-  }
-
-  &:hover {
-    @include hoverBorder;
   }
 }
 
@@ -50,17 +46,11 @@
   }
 }
 
-.project-item.featured {
-  //width: 100%;
-}
-
 .project-item-image {
-  border: 1px solid green;
   flex: 1 1 100%;
 }
 
 .project-item-content {
-  border: 1px solid green;
   padding: 15px;
   flex: 1 1 100%;
 }
@@ -85,6 +75,7 @@
 
     .project-item-content {
       flex: 1 1 45%;
+      padding-left: 0;
     }
   }
 }
