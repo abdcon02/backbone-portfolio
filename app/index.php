@@ -26,7 +26,8 @@
             <div class="footer">
                 <div class="social-icons">
                     <a href="#" class="icon icon-linkedin">Linkedin</a>
-                    <a href="#" class="icon icon-github">Github</a>
+                    <a href="#" class="octicon octicon-mark-github"></a>
+                    <span class="mega-octicon octicon-mark-github"></span>
                 </div>
             </div>
         </div>

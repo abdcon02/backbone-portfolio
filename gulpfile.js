@@ -7,12 +7,10 @@ const   gulp         = require('gulp'),
         sass         = require('gulp-sass'),
         rename       = require('gulp-rename'),
         uglify       = require('gulp-uglify'),
-        imagemin     = require('gulp-imagemin'),
         sourcemaps   = require('gulp-sourcemaps'),
         concat       = require('gulp-concat'),
         livereload   = require('gulp-livereload'),
-        bourbon      = require('bourbon'),
-        octicons     = require("octicons")
+        bourbon      = require('bourbon');
 
 const projectTheme = './'
 
@@ -54,16 +52,9 @@ gulp.task('compileSass', function() {
         .pipe(config.production ? gutil.noop() : livereload())
 })
 
-gulp.task('tester', function() {
-    gutil.log(ob   cticons);
-})
-
 gulp.task('compileImages', function() {
+    // TODO: compile source images
     return gulp.src(sourcePaths.images)
-        .pipe(imagemin({
-            progressive: true,
-            svgoPlugins: [{removeViewBox: false}]
-        }))
         .pipe(gulp.dest(themePaths.images))
         .pipe(config.production ? livereload() : gutil.noop())
 })
