@@ -63,7 +63,7 @@
 
                     <div class="landing-actions">
                         <div class="button load-project"><p>Play Game</p></div>
-                        <div class="button load-github"><a href="<%= github_url %>" target="_blank">View Github Repo</a></div>
+                        <div class="button load-github"><a href="<%= github_url %>" target="_blank">View on Github</a></div>
                     </div>
                     <div class='landing-info'>
                         <p><%= long_description %></p>

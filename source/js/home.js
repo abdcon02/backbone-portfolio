@@ -2,17 +2,27 @@
 
 $(document).ready(function() {
     // Namespace the objects
-    var app = {};
-    app.baseUrl = 'http://localhost:8000/'
-    app.imagePath = app.baseUrl + 'images/';
-    app.dataPath = app.baseUrl + 'data/';
-    app.projectPath = app.baseUrl + 'app/projects/'
+    var app         = {};
+    app.baseUrl     = 'http://localhost:8000/'
+    app.imagePath   = app.baseUrl + 'images/';
+    app.dataPath    = app.baseUrl + 'data/';
+    app.projectPath = app.baseUrl + 'app/projects/';
+    app.svg         = app.baseUrl + 'lib/svg/';
 
-    
-    app.buildImage = function(object) {
-        if (object.image !== undefined && object.image.indexOf('http') == -1) {
+
+    app.buildImageHelper = function(object) {
+        // Check that the path is set and is relative
+        if (object.image && object.image.indexOf('http') == -1) {
             object.image = app.imagePath + object.image;
         }
+    }
+
+    // Gather svg files to add them inline to the page
+    app.svgHelper = function(svgArray) {
+        var files = svgArray.map(function(item) {
+            return app.svg + item + '.svg';
+        })
+        return files;
     }
 
 ////////////////////////////////////////////////
@@ -93,7 +103,7 @@ $(document).ready(function() {
             var scope = this;
             this.collection.each(function(model) {
                 var json = model.toJSON();
-                app.buildImage(json);
+                app.buildImageHelper(json);
                 // create featured class
                 json.featured ? json.featuredClass = 'featured' : json.featuredClass = '';
                 var html = scope.template(json);
@@ -140,14 +150,14 @@ $(document).ready(function() {
 
         render: function() {
             var json = this.model.toJSON();
-            app.buildImage(json);
+            app.buildImageHelper(json);
             var html = this.template(json);
             this.$el.append(html);
         }
     })
 
-    setTimeout( function() {
-        $('[data-id=1]').click()
-    }, 10)
+    // setTimeout( function() {
+    //     $('[data-id=1]').click()
+    // }, 10)
 
 });
