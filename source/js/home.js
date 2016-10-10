@@ -17,13 +17,7 @@ $(document).ready(function() {
         }
     }
 
-    // Convert svg names to file paths
-    app.svgHelper = function(svgArray) {
-        var svgs = svgArray.map(function(item) {
-            return app.svg + item + '.svg';
-        })
-        return svgs;
-    }
+
 
 
 ////////////////////////////////////////////////
@@ -31,18 +25,43 @@ $(document).ready(function() {
 ////////////////////////////////////////////////
 
 
-    app.svgItem = Backbone.Collection.extend({
+    app.svgItem = Backbone.Model.extend({
 
-        fetch: function () {
+        // fetch: function () {
+        //     // OPTIMIZE this.path could lead to problems
+        //     $.get(this.get('path'), 'text').done(function(data) {
+        //         debugger;
+        //         return data;
+        //     })
+        // },
+        //
+        parse: function(data){
             debugger;
-            // PLAY HARDBALL
-            $.get(this.path, this.parse, 'text')
         },
 
-        parse: function(data){
-            console.log(data);
-        }
     })
+
+    // Convert svg names to file paths
+    app.svgHelper = function(svgArray) {
+        var svgs = svgArray.map(function(item) {
+            return app.svg + item + '.svg';
+        })
+
+        var output = [];
+        svgs.forEach(function(url) {
+            $.get(url).done(function(data) {
+                set(data);
+            })
+        })
+
+        function set(stuff) {
+            output.push(stuff)
+            console.log(stuff)
+        }
+        debugger;
+
+    }
+
     app.svgCollection = Backbone.Collection.extend({
         model: app.svgItem,
         svgItems: ['http://localhost:8000/lib/svg/alert.svg',
@@ -50,17 +69,18 @@ $(document).ready(function() {
 
         test: function() {
             var self = this;
-            this.svgItems.forEach(function(url) {
+            this.svgItems.forEach(function(path) {
                 var item = new self.model;
-                item.path = url;
+                item.url = path;
                 item.fetch();
+                debugger;
             })
         }
     })
 
+    // app.svgHelper(['alert', 'arrow-down']);
     var a = new app.svgCollection;
     a.test();
-
 
 ////////////////////////////////////////////////
 //    Navigation
