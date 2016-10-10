@@ -36,6 +36,7 @@
         <script type="text/template" class="item-navigation-template">
             <div class="nav-item">
                 <span><%= name %></span>
+                <span><%= icons %></span>
             </div>
         </script>
         <script type="text/template" class="project-collection-template">

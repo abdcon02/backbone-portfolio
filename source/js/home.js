@@ -17,19 +17,60 @@ $(document).ready(function() {
         }
     }
 
-    // Gather svg files to add them inline to the page
+    // Convert svg names to file paths
     app.svgHelper = function(svgArray) {
-        var files = svgArray.map(function(item) {
+        var svgs = svgArray.map(function(item) {
             return app.svg + item + '.svg';
         })
-        return files;
+        return svgs;
     }
+
+
+////////////////////////////////////////////////
+//    SVGs
+////////////////////////////////////////////////
+
+
+    app.svgItem = Backbone.Collection.extend({
+
+        fetch: function () {
+            debugger;
+            // PLAY HARDBALL
+            $.get(this.path, this.parse, 'text')
+        },
+
+        parse: function(data){
+            console.log(data);
+        }
+    })
+    app.svgCollection = Backbone.Collection.extend({
+        model: app.svgItem,
+        svgItems: ['http://localhost:8000/lib/svg/alert.svg',
+            'http://localhost:8000/lib/svg/arrow-down.svg'],
+
+        test: function() {
+            var self = this;
+            this.svgItems.forEach(function(url) {
+                var item = new self.model;
+                item.path = url;
+                item.fetch();
+            })
+        }
+    })
+
+    var a = new app.svgCollection;
+    a.test();
+
 
 ////////////////////////////////////////////////
 //    Navigation
 ////////////////////////////////////////////////
 
-    app.NavItem = Backbone.Model;
+    app.NavItem = Backbone.Model.extend({
+        defaults: {
+            icons: []
+        }
+    });
 
     app.NavListCollection = Backbone.Collection.extend({
         model: app.NavItem,
@@ -80,9 +121,9 @@ $(document).ready(function() {
         className: 'project-collection',
         template: _.template( $('.project-collection-template').html() ),
         events: {
-          'click': 'onClick'
+            'click': 'onClick'
         },
-        
+
         // When we click a box, remove the current view and load the full box view
         onClick: function(e) {
             var id = $(e.target).closest('.project-item').data('id');
