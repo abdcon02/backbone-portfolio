@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Connor Abdelnoor's portfolio site",
   "main": "index.php",
+  "repository": "https://github.com/lvampa/backbone-portfolio",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

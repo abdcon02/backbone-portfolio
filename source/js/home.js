@@ -17,9 +17,6 @@ $(document).ready(function() {
         }
     }
 
-
-
-
 ////////////////////////////////////////////////
 //    SVGs
 ////////////////////////////////////////////////
@@ -35,9 +32,6 @@ $(document).ready(function() {
         //     })
         // },
         //
-        parse: function(data){
-            debugger;
-        },
 
     })
 
@@ -46,20 +40,6 @@ $(document).ready(function() {
         var svgs = svgArray.map(function(item) {
             return app.svg + item + '.svg';
         })
-
-        var output = [];
-        svgs.forEach(function(url) {
-            $.get(url).done(function(data) {
-                set(data);
-            })
-        })
-
-        function set(stuff) {
-            output.push(stuff)
-            console.log(stuff)
-        }
-        debugger;
-
     }
 
     app.svgCollection = Backbone.Collection.extend({
@@ -79,8 +59,6 @@ $(document).ready(function() {
     })
 
     // app.svgHelper(['alert', 'arrow-down']);
-    var a = new app.svgCollection;
-    a.test();
 
 ////////////////////////////////////////////////
 //    Navigation

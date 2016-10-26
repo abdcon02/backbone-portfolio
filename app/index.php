@@ -11,11 +11,14 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
     </head>
     <body>
+        <!-- OPTIMIZE there has to be a better way-->
+        <?php include_once __DIR__ . '/../lib/octicons.svg'; ?>
         <div class="page-container">
             <div class="header-container">
                 <div class="navigation">
                     <div class="nav-item nav-name">
                         <span>Connor Abdelnoor</span>
+                            <img src="http://localhost:8000/lib/ocitcons.svg"/>
                     </div>
                 </div>
             </div>
