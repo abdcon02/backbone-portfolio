@@ -1,10 +1,7 @@
 [
   {
     "name":"Work",
-    "order": "1",
-    "icons": [
-      "code"
-    ]
+    "order": "1"
   },
   {
     "name":"Resume",
