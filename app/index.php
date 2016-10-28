@@ -76,6 +76,9 @@
 
             </div>
         </script>
+        <script type="text/templage" class="resume-template">
+
+        </script>
         <script src="js/home.js"></script>
     </footer>
 </html>

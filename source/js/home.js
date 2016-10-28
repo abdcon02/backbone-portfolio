@@ -1,4 +1,4 @@
-// TODO - document ready was so 2010. Just load the JS in the footer for a faster response time.
+// OPTIMIZE - document ready was so 2010. Figure out something better.
 
 $(document).ready(function() {
     // Namespace the objects
@@ -17,48 +17,7 @@ $(document).ready(function() {
         }
     }
 
-////////////////////////////////////////////////
-//    SVGs
-////////////////////////////////////////////////
 
-
-    app.svgItem = Backbone.Model.extend({
-
-        // fetch: function () {
-        //     // OPTIMIZE this.path could lead to problems
-        //     $.get(this.get('path'), 'text').done(function(data) {
-        //         debugger;
-        //         return data;
-        //     })
-        // },
-        //
-
-    })
-
-    // Convert svg names to file paths
-    app.svgHelper = function(svgArray) {
-        var svgs = svgArray.map(function(item) {
-            return app.svg + item + '.svg';
-        })
-    }
-
-    app.svgCollection = Backbone.Collection.extend({
-        model: app.svgItem,
-        svgItems: ['http://localhost:8000/lib/svg/alert.svg',
-            'http://localhost:8000/lib/svg/arrow-down.svg'],
-
-        test: function() {
-            var self = this;
-            this.svgItems.forEach(function(path) {
-                var item = new self.model;
-                item.url = path;
-                item.fetch();
-                debugger;
-            })
-        }
-    })
-
-    // app.svgHelper(['alert', 'arrow-down']);
 
 ////////////////////////////////////////////////
 //    Navigation
@@ -154,8 +113,8 @@ $(document).ready(function() {
 
     // TODO check if it is actually better to instantiate the collection object here and pass it to the view
     // versus declaring a new collection property in the view object
-    app.ProjectItemCollection = new app.ProjectCollection;
-    new app.ProjectView({collection: app.ProjectItemCollection});
+    // app.ProjectItemCollection = new app.ProjectCollection;
+    // new app.ProjectView({collection: app.ProjectItemCollection});
 
 ////////////////////////////////////////////////
 //    Item Landing
@@ -193,7 +152,79 @@ $(document).ready(function() {
             var html = this.template(json);
             this.$el.append(html);
         }
+    });
+
+    ////////////////////////////////////////////////
+    //    Resume
+    ////////////////////////////////////////////////
+
+    app.resumeModel = Backbone.Model.extend({
+      url: app.dataPath + 'resume.json'
+    });
+
+    app.resumeView = Backbone.View.extend({
+      tagName: 'div',
+      className: 'resume-container',
+      //OPTIMIZE construct with a model so the view can be reused
+      model: new app.resumeModel(),
+
+      initialize: function() {
+        var scope = this;
+        this.$el.appendTo('#content');
+        this.model.fetch().then(function() {
+          scope.render();
+        });
+      },
+
+      render: function() {
+        console.log(this.model.toJSON());
+      }
     })
+
+    app.ResumeView = new app.resumeView;
+
+    ////////////////////////////////////////////////
+    //    SVGs
+    ////////////////////////////////////////////////
+
+
+        app.svgItem = Backbone.Model.extend({
+
+            // fetch: function () {
+            //     // OPTIMIZE this.path could lead to problems
+            //     $.get(this.get('path'), 'text').done(function(data) {
+            //         debugger;
+            //         return data;
+            //     })
+            // },
+            //
+
+        })
+
+        // Convert svg names to file paths
+        app.svgHelper = function(svgArray) {
+            var svgs = svgArray.map(function(item) {
+                return app.svg + item + '.svg';
+            })
+        }
+
+        app.svgCollection = Backbone.Collection.extend({
+            model: app.svgItem,
+            svgItems: ['http://localhost:8000/lib/svg/alert.svg',
+                'http://localhost:8000/lib/svg/arrow-down.svg'],
+
+            test: function() {
+                var self = this;
+                this.svgItems.forEach(function(path) {
+                    var item = new self.model;
+                    item.url = path;
+                    item.fetch();
+                    debugger;
+                })
+            }
+        })
+
+        // app.svgHelper(['alert', 'arrow-down']);
 
     // setTimeout( function() {
     //     $('[data-id=1]').click()
