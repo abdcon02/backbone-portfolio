@@ -17,8 +17,6 @@ $(document).ready(function() {
         }
     }
 
-
-
 ////////////////////////////////////////////////
 //    Navigation
 ////////////////////////////////////////////////
@@ -29,14 +27,30 @@ $(document).ready(function() {
         }
     });
 
-    app.NavListCollection = Backbone.Collection.extend({
+    app.NavCollection = Backbone.Collection.extend({
         model: app.NavItem,
         url: app.dataPath + 'nav.json'
     });
 
-    app.NavListView = Backbone.View.extend({
+    app.NavView = Backbone.View.extend({
         el: '.navigation',
         template: _.template( $('.item-navigation-template').html() ),
+        events: {
+          'click': 'onClick'
+        },
+
+        onClick: function(e) {
+            var path = $(e.target).data('path');
+
+            // FIXME not proud of this
+            $('#content div:first').trigger('terminate');
+
+            if (path == "resume") {
+              new app.ResumeView;
+            } else {
+              new app.ProjectView({collection: new app.ProjectCollection});
+            }
+        },
 
         initialize: function() {
             var scope = this;
@@ -56,7 +70,7 @@ $(document).ready(function() {
         },
     });
 
-    new app.NavListView({collection: new app.NavListCollection()});
+    new app.NavView({collection: new app.NavCollection()});
 
 ////////////////////////////////////////////////
 //    Project List
@@ -78,7 +92,12 @@ $(document).ready(function() {
         className: 'project-collection',
         template: _.template( $('.project-collection-template').html() ),
         events: {
-            'click': 'onClick'
+            'click': 'onClick',
+            'terminate': 'removeView'
+        },
+
+        removeView: function() {
+          this.remove();
         },
 
         // When we click a box, remove the current view and load the full box view
@@ -113,8 +132,7 @@ $(document).ready(function() {
 
     // TODO check if it is actually better to instantiate the collection object here and pass it to the view
     // versus declaring a new collection property in the view object
-    // app.ProjectItemCollection = new app.ProjectCollection;
-    // new app.ProjectView({collection: app.ProjectItemCollection});
+    new app.ProjectView({collection: new app.ProjectCollection});
 
 ////////////////////////////////////////////////
 //    Item Landing
@@ -138,7 +156,7 @@ $(document).ready(function() {
 
         clickBackButton: function(e) {
             this.remove();
-            new app.ProjectView({collection: app.ProjectItemCollection});
+            new app.ProjectView({collection: new app.ProjectCollection});
         },
 
         initialize: function() {
@@ -158,15 +176,16 @@ $(document).ready(function() {
     //    Resume
     ////////////////////////////////////////////////
 
-    app.resumeModel = Backbone.Model.extend({
+    app.ResumeModel = Backbone.Model.extend({
       url: app.dataPath + 'resume.json'
     });
 
-    app.resumeView = Backbone.View.extend({
+    app.ResumeView = Backbone.View.extend({
       tagName: 'div',
       className: 'resume-container',
       //OPTIMIZE construct with a model so the view can be reused
-      model: new app.resumeModel(),
+      model: new app.ResumeModel(),
+      template: _.template( $('.resume-template').html() ),
 
       initialize: function() {
         var scope = this;
@@ -177,11 +196,11 @@ $(document).ready(function() {
       },
 
       render: function() {
-        console.log(this.model.toJSON());
+        var resume = this.model.toJSON().resume;
+        var html = this.template(resume);
+        this.$el.append(html);
       }
     })
-
-    app.ResumeView = new app.resumeView;
 
     ////////////////////////////////////////////////
     //    SVGs
@@ -223,8 +242,6 @@ $(document).ready(function() {
                 })
             }
         })
-
-        // app.svgHelper(['alert', 'arrow-down']);
 
     // setTimeout( function() {
     //     $('[data-id=1]').click()

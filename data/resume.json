@@ -1,21 +1,22 @@
 {
   "resume": {
+    "message": "This is a message",
     "stack": ["PHP", "JavaScript", "MySQL", "Sass", "Git", "Bash", "OSX", "Nginx", "Vagrant", "Backbone.js", "Magento 1&amp;2", "Wordpress", "Expression Engine", "Drupal 7"],
     "aspirations": ["Clojure", "Chef/Puppet", "Apache", "Software analytics analysis"],
     "traits": ["Attempts to be a better team member by asking what others need and being an Active Listener","Dedicated to the pursuit of wisdom", "Asks good questions and learns from mistakes", "Excited about applying skills to new problems", "Can also cook"],
     "education": [
       {"name": "Epicodus", "date": "2015", "focus": "PHP/JavaScript/Drupal"},
-      {"name": "The Evergreen State College", "date": "2009-2013", "focus": "Dual BA/BS degrees with emphasis in Mathematics, Writing, and Communications."}
+      {"name": "The Evergreen State College", "date": "2009 - 2013", "focus": "Dual BA/BS degrees with emphasis in Mathematics, Writing, and Communications."}
     ],
     "experience": [
       {"company": "Copious", "position":"Junior Software Engineer", "date": "2015 - 2016", "description": "Focused on Magento Website development while working in small agile-ish teams. Duties encompassed building modules for custom features, integrating third party extensions, and constructing themes based on designs.", "duties": ["Completed a 40 hour Magento 2 course and passed the qualifying exam to certify Copious as a Magento 2 Trained Solutions Partner.", "Created a gulp workflow to expedite Magento theme development.", "Built out custom swatch functionality using mustache.js templates.", "Using Vagrant, created a bash provisioning script to install Magento 2 dependencies.", "Built new functionality for clients with Expression Engine and WordPress systems."]},
       {"company": "Copious", "position":"Engineering Intern", "date": "2015", "description": "Wrote a comprehensive and automated checkout test suite for a large and heavily customized Magento website. Also, I resolved bug tickets and modified a part of the admin panel for the site's employees to be able to collect new marketing data.", "duties": ["Wrote and defined the steps for over 50 user checkout stories","Mocked API requests and configuring web-drivers to work within a Vagrant VM","Used PHPSpec to test 10 priority checkout use cases and report errors.","Used Behat, Mink, and Selenium2, to test over 30 checkout cases by directing a headless browser through the checkout process and created logging functions to record screenshots and the page html for each failure."]}
     ],
-    "past-experience": [
+    "past_experience": [
       {"position":"Elections Intern", "company": "Washington Secretary of State", "date": "2014"},
       {"position":"Outreach Associate", "company": "Three Degrees", "date": "2014"},
       {"position":"Administrative Assistant", "company": "Clam Fresh LLC", "date": "2014"},
-      {"position":"Rugby Club Coordinator", "company": "TESC", "date": "2012-2013"},
+      {"position":"Rugby Club Coordinator", "company": "TESC", "date": "2012 - 2013"},
       {"position":"Head LifeGuard", "company": "TESC", "date": "2012 - 2013"}
     ]
   }

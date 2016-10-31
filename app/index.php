@@ -8,6 +8,7 @@
         <script src="lib/jquery-1.12.4.min.js"></script>
         <script src="lib/underscore-1.8.3.min.js"></script>
         <script src="lib/backbone-1.3.3-min.js"></script>
+        <!-- OPTIMIZE host locally -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
     </head>
     <body>
@@ -37,8 +38,7 @@
     <footer>
         <script type="text/template" class="item-navigation-template">
             <div class="nav-item">
-                <span><%= name %></span>
-                <span><%= icons %></span>
+                <span data-path="<%= path %>"><%= name %></span>
             </div>
         </script>
         <script type="text/template" class="project-collection-template">
@@ -76,8 +76,60 @@
 
             </div>
         </script>
-        <script type="text/templage" class="resume-template">
-
+        <script type="text/template" class="resume-template">
+          <div class="banner">
+            <%= message %>
+          </div>
+          <div class="left-container">
+            <div class="resume-section">
+              <h4>Stack</h4>
+              <% _.each(stack, function(item) { %>
+                <span><%= item %></span>
+              <% }); %>
+            </div>
+            <div class="resume-section">
+              <h4>Aspirations</h4>
+              <% _.each(aspirations, function(item) { %>
+                <span><%= item %></span>
+              <% }); %>
+            </div>
+            <div class="resume-section">
+              <h4>Traits</h4>
+                <ul>
+                <% _.each(traits, function(item) { %>
+                  <li><%= item %></li>
+                <% }); %>
+              </ul>
+            </div>
+            <div class="resume-section">
+              <h4>Education</h4>
+              <% _.each(education, function(item) { %>
+                <p><span><%= item.name %></span> &#124; <span><%= item.date %></span></p>
+                <p><%= item.focus %></p>
+              <% }); %>
+            </div>
+          </div>
+          <div class="right-container">
+            <div class="resume-section">
+              <h4>Work Experience</h4>
+              <% _.each(experience, function(item) { %>
+                <div>
+                  <p><span><%= item.company %></span> &#124; <span><%= item.position %></span> &#124; <span><%= item.date %></span></p>
+                  <p><%= item.description %></p>
+                  <ul>
+                    <% _.each(item.duties, function(duty) { %>
+                      <li><%= duty %></li>
+                    <% }) %>
+                  </ul>
+                </div>
+              <% }); %>
+            </div>
+            <div class="resume-section">
+              <% _.each(past_experience, function(item) { %>
+                <p><span><%= item.position %></span> &#124; <span><%= item.company %></span> &#124; <span><%= item.date %></span></p>
+              <% }) %>
+            </div>
+          </div>
         </script>
         <script src="js/home.js"></script>
     </footer>
