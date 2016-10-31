@@ -145,13 +145,19 @@ $(document).ready(function() {
 
         events: {
             'click .back-to-project-collection': 'clickBackButton',
-            'click .load-project': 'loadProject'
+            'click .load-project': 'loadProject',
+            'terminate': 'removeView'
+        },
+
+        removeView: function() {
+          this.remove();
         },
 
         loadProject: function(e) {
-            var projectUrl = this.model.get("project_url");
-            var fullProjectUrl = app.projectPath + projectUrl;
-            window.location.href = fullProjectUrl;
+          e.preventDefault()
+          var projectUrl = this.model.get("project_url");
+          var fullProjectUrl = app.projectPath + projectUrl;
+          window.location.href = fullProjectUrl;
         },
 
         clickBackButton: function(e) {
@@ -186,6 +192,14 @@ $(document).ready(function() {
       //OPTIMIZE construct with a model so the view can be reused
       model: new app.ResumeModel(),
       template: _.template( $('.resume-template').html() ),
+
+      events: {
+        'terminate': 'removeView'
+      },
+
+      removeView: function() {
+        this.remove();
+      },
 
       initialize: function() {
         var scope = this;
@@ -243,8 +257,8 @@ $(document).ready(function() {
             }
         })
 
-    // setTimeout( function() {
-    //     $('[data-id=1]').click()
-    // }, 10)
+    setTimeout( function() {
+        $('[data-id=1]').click()
+    }, 10)
 
 });

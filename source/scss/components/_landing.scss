@@ -1,10 +1,10 @@
 /* ----- Landing Item Layout ------
   .item-landing-template
     .landing-item
+      .landing-top
+        .landing-actions
       .landing-image
       .landing-content
-        .landing-top
-        .landing-actions
         .landing-info
 */
 
@@ -15,16 +15,9 @@
   flex: 1 1 100%;
 }
 
-.landing-image {
-  flex: 1 1 100%;
-}
-
-.landing-content {
-  padding: $small-trim;
-}
-
 .landing-top {
   text-align: center;
+  flex: 1 1 100%;
 }
 
 .landing-actions {
@@ -35,6 +28,16 @@
     margin-bottom: 10px;
   }
 }
+
+
+.landing-image {
+  flex: 1 1 100%;
+}
+
+.landing-content {
+  padding: 0 $small-trim $small-trim $small-trim;
+}
+
 
 .landing-info {
   text-align: center;
@@ -57,5 +60,3 @@
     float: right;
   }
 }
-
-
