@@ -1,6 +1,7 @@
 /* ------ margins and spacing ------ */
 $max-container-width: 1400px;
 $small-trim: 15px;
+$project-item-gutter-small: 2%;
 $project-item-gutter: 5%;
 
 /* ------ breakpoints ------ */
@@ -8,17 +9,27 @@ $project-item-gutter: 5%;
 // Large Phone
 $bp-small: 640px;
 // After tablet
-$bp-medium: 770px;
+$bp-medium: 768px;
 // Large screen
-$bp-large: 1024px;
+$bp-large: 990px;
 // Very large
 $bp-xlarge: 1250px;
 
 /* ------ colors ------ */
-$c-border-hover: red;
-$c-button-border: grey;
+
+$c-text: #363647;
+
+$c-link: #A1221A;
+$c-button-border: $c-link;
+$c-border: $c-link;
+
+// $c-border: #15B6F4;
+$c-card-border: #C0C0C0;
+$c-card-border-hover: lighten($c-card-border, 5%);
+
+$c-background: #F9F9F9;
 $c-button-background: white;
-$c-link: black;
+$c-card-background: $c-button-background;
 
 /* ------ fonts ------ */
 $f-default: 'Roboto', Verdana, sans-serif;

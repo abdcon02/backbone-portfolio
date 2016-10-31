@@ -25,6 +25,7 @@
 
 .project-item {
   @include hoverBorder(green);
+  background-color: $c-card-background;
   display: flex;
   flex-flow: row wrap;
   flex: 1 1 100%;
@@ -58,10 +59,15 @@
 @media screen and (min-width: $bp-small) {
 
   .project-item {
-    flex: 1 1 45%;
+    flex: 0 1 calc(50% - (#{$project-item-gutter-small} / 2);
+    margin-bottom: $project-item-gutter-small;
 
     &:nth-of-type(2n) {
-      margin-right: $project-item-gutter;
+      margin-right: $project-item-gutter-small;
+    }
+
+    &:not(.featured) {
+      max-width: calc(50% - (#{$project-item-gutter-small} / 2));
     }
   }
 
@@ -80,3 +86,17 @@
   }
 }
 
+@media screen and (min-width: $bp-medium) {
+  .project-item {
+    flex: 1 1 calc(50% - #{$project-item-gutter});
+    margin-bottom: $project-item-gutter;
+
+    &:nth-of-type(2n) {
+      margin-right: $project-item-gutter;
+    }
+
+    &:not(.featured) {
+      max-width: calc(50% - (#{$project-item-gutter} / 2));
+    }
+  }
+}

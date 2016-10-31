@@ -9,7 +9,7 @@
 
 .navigation {
   @include container-margin;
-  border-bottom: 1px solid black;
+  border-bottom: 2px solid $c-border;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
@@ -17,11 +17,12 @@
 }
 
 .nav-item {
-  text-transform: uppercase;
-  padding: 15px 10px;
+  color: $c-text;
   font-size: 24px;
   font-family: $f-special;
   font-weight: bold;
+  padding: 15px 10px;
+  text-transform: uppercase;
 }
 
 .nav-item:not(.nav-name) {

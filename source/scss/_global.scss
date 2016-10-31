@@ -2,6 +2,10 @@
 *  Here are global styles, they do things everywhere
 */
 
+body {
+  background-color: $c-background;
+}
+
 div {
   box-sizing: border-box;
 }
@@ -10,18 +14,19 @@ img {
   width: 100%;
 }
 
-h1, h2, h3, h4, p, a {
-  margin-top: 0;
+h1, h2, h3, h4, p {
+  color: $c-text;
 }
 
 a {
+  color: $c-link;
   font-family: $f-special;
   font-size: 16px;
+  margin-top: 0;
   text-decoration: none;
 }
 
 a:visited {
-  color: $c-link;
   text-decoration: none;
 }
 
@@ -59,4 +64,9 @@ h4 {
   font-family: $f-special;
   font-size: 20px;
   font-weight: bold;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0;
 }

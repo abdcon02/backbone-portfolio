@@ -1,0 +1,63 @@
+/* ----- Portfolio Resume ------*/
+
+/* ---- resume container structure
+    .resume-container
+      .message
+      .left-container
+        .resume-section
+      .right-container
+        .resume-section
+*/
+
+.resume-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.banner {
+  flex: 1 1 100%;
+  margin: 5px 0 20px 0;
+  text-align: center;
+}
+
+@media screen and (min-width: $bp-medium) {
+
+  .left-container {
+    border-right: 2px solid $c-border;
+    flex: 1 1 34%;
+    margin-right: 3%;
+    padding-right: 3%;
+  }
+
+  .right-container {
+    flex: 1 1 60%;
+  }
+
+  .resume-section:first-of-type h4 {
+    padding-top: 0;
+  }
+}
+
+.resume-section {
+  margin-bottom: 20px;
+
+  div {
+    margin-bottom: 20px
+  }
+
+  h4 {
+    margin: 0;
+    padding: 15px 0;
+  }
+
+  p span:first-of-type {
+    font-weight: bold;
+  }
+
+  > span:not(:last-of-type)::after {
+    content: ',';
+    display: inline-block;
+    width: 5px;
+    height: 1px;
+  }
+}

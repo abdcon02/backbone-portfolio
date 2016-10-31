@@ -1,6 +1,6 @@
 .button {
   background: $c-button-background;
-  border: 2px solid $c-button-border;
+  border: 3px solid $c-button-border;
   cursor: pointer;
   display: inline-block;
   padding: 5px 30px;
@@ -14,9 +14,5 @@
     font-size: 16px;
     text-decoration: none;
     margin: 0
-  }
-
-  &:hover {
-    background: lighten($c-button-background, 10);
   }
 }
