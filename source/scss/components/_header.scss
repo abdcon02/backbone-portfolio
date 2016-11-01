@@ -21,8 +21,10 @@
   font-size: 24px;
   font-family: $f-special;
   font-weight: bold;
-  padding: 15px 10px;
+  padding: 0 10px;
+  margin: 15px 0;
   text-transform: uppercase;
+
 }
 
 .nav-item:not(.nav-name) {
@@ -30,6 +32,24 @@
 }
 
 .nav-name {
-  font-size: 32px;
-  flex: 1 1 50%;
+  font-size: 24px;
+  flex: 1 1 100%;
+}
+
+@media screen and (max-width: $bp-small - 1) {
+  .nav-name {
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .nav-item:not(:first-of-type):not(:last-of-type) {
+    border-right: 2px solid $c-text;
+  }
+}
+
+@media screen and (min-width: $bp-small) {
+  .nav-name {
+    font-size: 32px;
+    flex: 1 1 50%;
+  }
 }
