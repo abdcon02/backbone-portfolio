@@ -36,7 +36,7 @@ $(document).ready(function() {
         el: '.navigation',
         template: _.template( $('.item-navigation-template').html() ),
         events: {
-          'click': 'onClick'
+          'click .nav-item:not(.nav-name)': 'onClick'
         },
 
         onClick: function(e) {
@@ -92,7 +92,7 @@ $(document).ready(function() {
         className: 'project-collection',
         template: _.template( $('.project-collection-template').html() ),
         events: {
-            'click': 'onClick',
+            'click .project-item': 'onClick',
             'terminate': 'removeView'
         },
 
@@ -258,8 +258,8 @@ $(document).ready(function() {
             }
         })
 
-    setTimeout( function() {
-        $('[data-id=1]').click()
-    }, 10)
+    // setTimeout( function() {
+    //     $('[data-id=1]').click()
+    // }, 10)
 
 });
