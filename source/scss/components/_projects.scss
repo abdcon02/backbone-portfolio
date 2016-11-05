@@ -24,7 +24,7 @@
 }
 
 .project-item {
-  @include hoverBorder(green);
+  @include hoverBorder($c-card-border);
   background-color: $c-card-background;
   display: flex;
   flex-flow: row wrap;

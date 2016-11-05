@@ -1,9 +1,9 @@
 @mixin hoverBorder($color, $hover: true) {
-  border: 3px solid $c-card-border;
+  border: 3px solid $color;
 
   @if $hover {
     &:hover {
-      box-shadow: 0 0 5px 0 $c-card-border-hover;
+      box-shadow: 0 0 5px 0 lighten($color, 5%);
     }
   }
 }

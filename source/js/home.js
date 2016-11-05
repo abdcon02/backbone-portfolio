@@ -173,6 +173,7 @@ $(document).ready(function() {
         render: function() {
             var json = this.model.toJSON();
             app.buildImageHelper(json);
+            json.visit_text = json.is_game ? "Play Game" : "View App";
             var html = this.template(json);
             this.$el.append(html);
         }
