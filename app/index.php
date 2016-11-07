@@ -77,7 +77,9 @@
         </script>
         <script type="text/template" class="resume-template">
             <div class="banner">
-                <%= message %>
+                <p>
+                    <%= message %>
+                </p>
             </div>
             <div class="left-container">
                 <div class="resume-section">

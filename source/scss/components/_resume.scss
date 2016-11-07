@@ -12,6 +12,10 @@
 .resume-container {
   display: flex;
   flex-flow: row wrap;
+
+  p {
+    padding-bottom: 10px;
+  }
 }
 
 .banner {
@@ -21,6 +25,11 @@
 }
 
 @media screen and (min-width: $bp-medium) {
+
+  .banner p {
+    margin: 0 auto;
+    width: 70%;
+  }
 
   .left-container {
     border-right: 2px solid $c-border;

@@ -1,6 +1,6 @@
 {
   "resume": {
-    "message": "This is a message",
+    "message": "Hey! My name is Connor my resume is below. If that is too much to read, the short version goes like this: I'm a young, white male (with a beard), working with software, in Portland Oregon. If you didn't stop reading in disgust already, then you should know I am also extremely inquisitive, have a tiny sense of humor, am kind, and love a good adventure. My friends always say they are impressed that if I say I am going to do something, I always follow through. My coworkers compliment me on the energy I bring to the teams I am on. I believe everyone has the potential to do great things, but by working cohesively together and communicating effectively, we have a better chance to succeed.",
     "stack": ["PHP", "JavaScript", "MySQL", "Sass", "Git", "Bash", "OSX", "Nginx", "Vagrant", "Backbone.js", "Magento 1&amp;2", "Wordpress", "Expression Engine", "Drupal 7"],
     "aspirations": ["Clojure", "Chef/Puppet", "Apache", "Software analytics analysis"],
     "traits": ["Attempts to be a better team member by asking what others need and being an Active Listener","Dedicated to the pursuit of wisdom", "Asks good questions and learns from mistakes", "Excited about applying skills to new problems", "Can also cook"],
