@@ -8,10 +8,5 @@
     "name":"Resume",
     "order": "2",
     "path": "resume"
-  },
-  {
-    "name":"About",
-    "order": "3",
-    "path": "about"
   }
 ]

@@ -21,7 +21,7 @@
     "featured": false,
     "is_game": true,
     "github_url": "https://github.com/abdcon02/April29_SquareGame_p5",
-    "project_url": "/"
+    "project_url": "squidchase/index.html"
   },
   {
     "id": 3,
@@ -33,27 +33,30 @@
     "featured": false,
     "is_game": false,
     "github_url": "https://github.com/lvampa/Assessment_april7_PizzaDelivery",
-    "project_url": "/"
+    "project_url": "pizza/pizza.html"
   },
   {
     "id": 4,
     "name":"Triangle Checker",
     "tagline":"Hey! Who you calling obtuse?",
-    "short_description": "Hello World",
-    "long_description": "A Longer Hello World",
-    "image": "http://placehold.it/350x150",
+    "short_description": "With this throwback to Geometry class days, enter 3 out of the 5 sides of a triangle and this program will tell you the triangle type. As an added bonus, it will even try to draw it for you.",
+    "long_description": "With this throwback to Geometry class days, enter 3 out of the 5 sides of a triangle and this program will tell you the triangle type. As an added bonus, it will even try to draw it for you. The drawing is done using a css polygon shape and the logic is some simple JavaScript. Mocha and Chai were used to write specs and build out the logic in proper BDD fashion.",
+    "image": "triangle.png",
     "featured": false,
     "is_game": false,
     "github_url": "https://github.com/lvampa/Assessment_april7_PizzaDelivery",
-    "project_url": "/"
+    "project_url": "triangle/triangle.html"
   },
   {
     "id": 5,
     "name":"Repeat Word Counter",
-    "url":"#",
-    "short_description": "Hello World",
-    "long_description": "A Longer Hello World",
-    "image": "http://placehold.it/350x150",
-    "featured": false
+    "tagline":"Hello hello hello world",
+    "short_description": "This Count Repeats app with take a string of words as an input as well as a single word to search for. It will then output the number of times that word appears in the string. It was completed using PHP, Silex version 1.0, Twig version 1.1, and tested in PHPUnit 4.5.",
+    "long_description": "This Count Repeats app with take a string of words as an input as well as a single word to search for. It will then output the number of times that word appears in the string. It was completed using PHP, Silex version 1.0, Twig version 1.1, and tested in PHPUnit 4.5. The project was speced out in plain english before test were written.",
+    "image": "repeat.png",
+    "featured": false,
+    "is_game": false,
+    "github_url": "https://github.com/lvampa/Assessment_march13_CountRepeats",
+    "project_url": "repeat/web/index.php"
   }
 ]
