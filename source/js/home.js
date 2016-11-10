@@ -11,9 +11,11 @@ $(document).ready(function() {
 
 
     app.buildImageHelper = function(object) {
-        // Check that the path is set and is relative
+        // Check that the path is set and is relative, else use default.
         if (object.image && object.image.indexOf('http') == -1) {
             object.image = app.imagePath + object.image;
+        } else {
+            object.image = app.imagePath + 'default.png';
         }
     }
 
