@@ -1,0 +1,3 @@
+[submodule "app/projects/minesweeper"]
+	path = app/projects/minesweeper
+	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
