@@ -1,13 +1,15 @@
+
+# For now, just track compiled assets until I decide to install Node on the server.
 ### Compiled Assets
-css/
-js/
+#css/
+#js/
+
+### Images
+#images/*
+#source/images
 
 ### NPM Packages
 node_modules/
-
-### Images
-images/*
-source/images
 
 ### Projects
 app/projects
