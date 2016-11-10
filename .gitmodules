@@ -3,13 +3,13 @@
 	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
 [submodule "app/projects/squidchase"]
 	path = app/projects/squidchase
-	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
+	url = https://github.com/lvampa/April29_SquareGame_p5
 [submodule "app/projects/pizza"]
 	path = app/projects/pizza
-	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
+	url = https://github.com/lvampa/Assessment_april7_PizzaDelivery
 [submodule "app/projects/triangle"]
 	path = app/projects/triangle
-	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
+	url = https://github.com/lvampa/april14_triangletracker_javascript
 [submodule "app/projects/repeat"]
 	path = app/projects/repeat
-	url = https://github.com/lvampa/April23_Minesweeper_AngularJS
+	url = https://github.com/lvampa/Assessment_march13_CountRepeats
