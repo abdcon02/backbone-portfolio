@@ -3,7 +3,7 @@
 $(document).ready(function() {
     // Namespace the objects
     var app         = {};
-    app.baseUrl     = location.hostname === 'localhost' ? 'http://localhost:8000/' : 'http://www.connorabdelnoor.com';
+    app.baseUrl     = location.hostname === 'localhost' ? 'http://localhost:8000/' : 'http://www.connorabdelnoor.com/';
     app.imagePath   = app.baseUrl + 'images/';
     app.dataPath    = app.baseUrl + 'data/';
     app.projectPath = app.baseUrl + 'app/projects/';
