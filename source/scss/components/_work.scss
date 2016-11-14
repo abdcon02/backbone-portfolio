@@ -10,20 +10,20 @@
 }
 
 
-/* ----- Project collection layout ------
-      .project-collection
-        .project-item (featured)
-          .project-item-image
-          .project-item-content
+/* ----- Work collection layout ------
+      .work-collection
+        .work-item (featured)
+          .work-item-image
+          .work-item-content
 */
 
-.project-collection {
+.work-collection {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
 
-.project-item {
+.work-item {
   @include hoverBorder($c-card-border);
   background-color: $c-card-background;
   display: flex;
@@ -43,8 +43,8 @@
   }
 }
 
-.project-item:not(.featured) {
-  .project-item-image {
+.work-item:not(.featured) {
+  .work-item-image {
     width: 100%;
   }
 
@@ -53,39 +53,39 @@
   }
 }
 
-.project-item-image {
+.work-item-image {
   flex: 1 1 100%;
 }
 
-.project-item-content {
+.work-item-content {
   padding: 15px;
   flex: 1 1 100%;
 }
 
 @media screen and (min-width: $bp-small) {
 
-  .project-item {
-    flex: 0 1 calc(50% - (#{$project-item-gutter-small} / 2);
-    margin-bottom: $project-item-gutter-small;
+  .work-item {
+    flex: 0 1 calc(50% - (#{$work-item-gutter-small} / 2);
+    margin-bottom: $work-item-gutter-small;
 
     &:nth-of-type(2n) {
-      margin-right: $project-item-gutter-small;
+      margin-right: $work-item-gutter-small;
     }
 
     &:not(.featured) {
-      max-width: calc(50% - (#{$project-item-gutter-small} / 2));
+      max-width: calc(50% - (#{$work-item-gutter-small} / 2));
     }
   }
 
-  .project-item.featured {
+  .work-item.featured {
     flex: 1 1 100%;
 
-    .project-item-image {
+    .work-item-image {
       flex: 1 1 45%;
-      margin-right: $project-item-gutter;
+      margin-right: $work-item-gutter;
     }
 
-    .project-item-content {
+    .work-item-content {
       flex: 1 1 45%;
       padding-left: 0;
     }
@@ -93,16 +93,16 @@
 }
 
 @media screen and (min-width: $bp-medium) {
-  .project-item {
-    flex: 1 1 calc(50% - #{$project-item-gutter});
-    margin-bottom: $project-item-gutter;
+  .work-item {
+    flex: 1 1 calc(50% - #{$work-item-gutter});
+    margin-bottom: $work-item-gutter;
 
     &:nth-of-type(2n) {
-      margin-right: $project-item-gutter;
+      margin-right: $work-item-gutter;
     }
 
     &:not(.featured) {
-      max-width: calc(50% - (#{$project-item-gutter} / 2));
+      max-width: calc(50% - (#{$work-item-gutter} / 2));
     }
   }
 }

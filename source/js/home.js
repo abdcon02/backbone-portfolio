@@ -21,11 +21,7 @@ $(document).ready(function() {
 //    Navigation
 ////////////////////////////////////////////////
 
-    app.NavItem = Backbone.Model.extend({
-        defaults: {
-            icons: []
-        }
-    });
+    app.NavItem = Backbone.Model;
 
     app.NavCollection = Backbone.Collection.extend({
         model: app.NavItem,
@@ -48,7 +44,7 @@ $(document).ready(function() {
             if (path == "resume") {
               new app.ResumeView;
             } else {
-              new app.ProjectView({collection: new app.ProjectCollection});
+              new app.WorkView({collection: new app.WorkCollection});
             }
         },
 
@@ -76,23 +72,32 @@ $(document).ready(function() {
 //    Project List
 ////////////////////////////////////////////////
 
-    app.ProjectItem = Backbone.Model.extend({
+    app.WorkItem = Backbone.Model.extend({
         defaults: {
-            tagline: ""
+          is_post:"true",
+          name:"Default",
+          tagline: "default",
+          short_description: "default",
+          long_description: "default",
+          image: "default.png",
+          featured: false,
+          is_game: false,
+          github_url: "default",
+          project_url: "default"
         }
     });
 
-    app.ProjectCollection = Backbone.Collection.extend({
-        model: app.ProjectItem,
-        url: app.dataPath + 'projects.json'
+    app.WorkCollection = Backbone.Collection.extend({
+        model: app.WorkItem,
+        url: app.dataPath + 'work.json'
     });
 
-    app.ProjectView = Backbone.View.extend({
+    app.WorkView = Backbone.View.extend({
         tagName: 'div',
-        className: 'project-collection',
-        template: _.template( $('.project-collection-template').html() ),
+        className: 'work-collection',
+        template: _.template( $('.work-collection-template').html() ),
         events: {
-            'click .project-item': 'onClick',
+            'click .work-item': 'onClick',
             'terminate': 'removeView'
         },
 
@@ -102,10 +107,10 @@ $(document).ready(function() {
 
         // When we click a box, remove the current view and load the full box view
         onClick: function(e) {
-            var id = $(e.target).closest('.project-item').data('id');
+            var id = $(e.target).closest('.work-item').data('id');
             var clickedModel = this.collection.get(id)
             this.remove();
-            new app.ItemLandingView({model: clickedModel})
+            clickedModel.get('is_post') ? new app.PostLandingView({model: clickedModel}) : new app.ItemLandingView({model: clickedModel}) ;
         },
 
         initialize: function() {
@@ -132,10 +137,46 @@ $(document).ready(function() {
 
     // TODO check if it is actually better to instantiate the collection object here and pass it to the view
     // versus declaring a new collection property in the view object
-    new app.ProjectView({collection: new app.ProjectCollection});
+    new app.WorkView({collection: new app.WorkCollection});
+
 
 ////////////////////////////////////////////////
-//    Item Landing
+//    Post Landing View
+////////////////////////////////////////////////
+
+    app.PostLandingView = Backbone.View.extend({
+        tagName: 'div',
+        className: 'post-landing',
+        template: _.template( $('.post-landing-template').html() ),
+
+        events: {
+            'click .back-to-collection': 'clickBackButton',
+            'terminate': 'removeView'
+        },
+
+        removeView: function() {
+          this.remove();
+        },
+
+        clickBackButton: function(e) {
+            this.remove();
+            new app.WorkView({collection: new app.WorkCollection});
+        },
+
+        initialize: function() {
+            this.$el.appendTo('#content');
+            this.render();
+        },
+
+        render: function() {
+            var json = this.model.toJSON();
+            var html = this.template(json);
+            this.$el.append(html);
+        }
+    });
+
+////////////////////////////////////////////////
+//    Item Landing View
 ////////////////////////////////////////////////
 
     app.ItemLandingView = Backbone.View.extend({
@@ -144,7 +185,7 @@ $(document).ready(function() {
         template: _.template( $('.item-landing-template').html() ),
 
         events: {
-            'click .back-to-project-collection': 'clickBackButton',
+            'click .back-to-collection': 'clickBackButton',
             'click .load-project': 'loadProject',
             'terminate': 'removeView'
         },
@@ -162,7 +203,7 @@ $(document).ready(function() {
 
         clickBackButton: function(e) {
             this.remove();
-            new app.ProjectView({collection: new app.ProjectCollection});
+            new app.WorkView({collection: new app.WorkCollection});
         },
 
         initialize: function() {
@@ -179,9 +220,9 @@ $(document).ready(function() {
         }
     });
 
-    ////////////////////////////////////////////////
-    //    Resume
-    ////////////////////////////////////////////////
+////////////////////////////////////////////////
+//    Resume
+////////////////////////////////////////////////
 
     app.ResumeModel = Backbone.Model.extend({
       url: app.dataPath + 'resume.json'

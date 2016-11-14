@@ -5,8 +5,13 @@
     "path": "work"
   },
   {
-    "name":"Resume",
+    "name":"Posts",
     "order": "2",
+    "path": "resume"
+  },
+  {
+    "name":"Resume",
+    "order": "3",
     "path": "resume"
   }
 ]

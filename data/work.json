@@ -1,6 +1,12 @@
 [
   {
-    "id": 1,
+    "id": 6,
+    "title":"<h1>Setting up TLS on a shared server</h1>",
+    "content":"<p>Pre-note: In an opinionated lecture from a senior developer earlier this month, I was reminded that SSL is not longer the correct protocol to secure a request. SSL 3.0 was deprecated in <a href='https://tools.ietf.org/html/rfc7568'>2015</a> because of vulnerabilities. However, until time and education removes the term SSL from circulation, the engineering team at Copious has decided to internally say TLS, while client facing work is documented using SSL. Ugghhh.</p><p>Recently, I transitioned hosting providers for my personal portfolio site to <a href='https://www.nearlyfreespeech.net/'>https://www.nearlyfreespeech.net/</a> (NFSN) and decided this would be a great oportunity to set up HTTPS. The problem is that the server hosting this site is also serving many customers. To protect our collective works, NFSN limits control over what exactly I can do in my meager allotment of space. </p><p>Before setting out to manually certify my own domain, I asked myself the question, what resources does NFSN provide? Turns out, they offer certificates for sites they host! Great, only two things. 1) They cost money and I know <a href='https://letsencrypt.org/getting-started/'>letsencrypt</a> will set me up for free. 2) Paying someone to do this for me means I don’t get to learn anything. After considering this, I felt assured that using Let’s Encrypt was the path I wanted to go down.</p><p>Let’s Encrypts’ website has some great information, but their client uses sudo and running sudo commands from my terminal results in -<span class='code'>=>$ bash: sudo: command not found</span><p></p>A little searching yields this well documented script - <a href='https://github.com/diafygi/letsencrypt-nosudo'>https://github.com/diafygi/letsencrypt-nosudo</a> which appears to be everything needed to generate and sign a certificate using letsencrypt. After doing my best to see what this python script was doing, I ran it locally using the --file-based parameter mentioned in the README. There was just one problem <span class='code'>=>$ openssl req -new -sha256 -key domain.key -subj '/' -reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf '[SAN]\nsubjectAltName=DNS:example.com,DNS:www.example.com')) > domain.csr</spanOn my mac, the correct path for openssl.cnf is actually<span class='code'>/System/Library/OpenSSL/openssl.cnf</span>After swapping that out, and following the rest of the instructions, everything worked perfectly and a signed.crt was generated. </p><p>Time for the next step. NFSN provided the necessary <a href='https://members.nearlyfreespeech.net/faq?keywords=tls&submit=Search+for+Keywords&form=1'>documentation</a> for using a third party certificate to secure your site. They want the certification, the domain key, and also an intermediate certificate provided by the certificate authority. I wasn’t sure where to get this, but in the member FAQ someone had already shared their experience getting a cert using a different method. I pulled this request out for my own use <span class='code'>=>$ curl -o www.example.com.chn https://letsencrypt.org/certs/lets-encrypt-x1-cross-signed.pem</span></p></p>Now that all three files were acquired, NFSN offers two options to load them. Copy the file contents into a web tool, or just use a command line utility. NFSN just require that all three files be .pem formatted. This was a problem because I had<span class='code'>domain.chnsigned.crtdomain.key</span></p></p>Actually, according to <a href='http://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file'>this</a> well regarded post, all three of those file types are actually .pem formats! From the command line, I ran <span class='code'>=>$ cat domain.chn signed.crt domain.key | nfsn -i set-tls</span>and a minute later, I had that nice green lock and https in my url. </p><p>Post Note - if you are any good at python and want to contribute to something, <a href='https://github.com/diafygi/letsencrypt-nosudo/issues'>https://github.com/diafygi/letsencrypt-nosudo/issues</a> has some help wanted issues.</p>"
+  },
+  {
+    "id": 5,
+    "is_post":"false",
     "name":"Minesweeper",
     "tagline": "The classic game, but in AngularJS",
     "short_description": "Relive your days of whittling away time in an office cubicle playing classic Minesweeper with this recreation. Win by unveiling all tiles which do not conceal mines, or flagging all the tiles which do.",
@@ -12,50 +18,47 @@
     "project_url": "minesweeper/index.html"
   },
   {
-    "id": 2,
+    "id": 4,
+    "is_post":"false",
     "name":"Squid Chase",
     "tagline": "Get that Squid!",
     "short_description": "Squid Chase is a challenging game built using the p5.js library. p5.js follows the goals of Java&#39;s processing library which attempts to make coding accessible to artists and designers. Squid Chase mainly makes use of objects spatial awareness on the page.",
     "long_description": "This game challenges the user to chase an accelerating squid around the screen, accruing points for keeping the mouse in the target. It was built using the p5.js library. p5.js follows the goals of Java&#39;s processing library which attempts to make coding accessible to artists and designers. By adding vector properties to the squid object, and remembering some geometry from math class, it was possible to create a bouncing target. After adding some more logic for mouse events, and a score tracker, a nice little time wasting game was created.",
     "image": "squid.png",
-    "featured": false,
     "is_game": true,
     "github_url": "https://github.com/abdcon02/April29_SquareGame_p5",
     "project_url": "squidchase/index.html"
   },
   {
     "id": 3,
+    "is_post":"false",
     "name":"Pizza Order",
     "tagline":"Just cheese please",
     "short_description": "This is a simple JQuery project that was created using BDD best practices. JavaScript testing libraries Mocha and Chai were used to create specs, starting with the simplest case first!",
     "long_description": "Following BDD best practices can sometimes be difficult, especially when a function's logic is not going to be that difficult. Mocha and Chai are two common JavaScript tools that are used together to create specs and drive BDD. They were both used in this simple JQuery web application to ensure each customer is not being overcharged on their pizza order.",
     "image": "pizza.png",
-    "featured": false,
-    "is_game": false,
     "github_url": "https://github.com/lvampa/Assessment_april7_PizzaDelivery",
     "project_url": "pizza/pizza.html"
   },
   {
-    "id": 4,
+    "id": 2,
+    "is_post":"false",
     "name":"Triangle Checker",
     "tagline":"Hey! Who you calling obtuse?",
     "short_description": "With this throwback to Geometry class days, enter 3 out of the 5 sides of a triangle and this program will tell you the triangle type. As an added bonus, it will even try to draw it for you.",
     "long_description": "With this throwback to Geometry class days, enter 3 out of the 5 sides of a triangle and this program will tell you the triangle type. As an added bonus, it will even try to draw it for you. The drawing is done using a css polygon shape and the logic is some simple JavaScript. Mocha and Chai were used to write specs and build out the logic in proper BDD fashion.",
     "image": "triangle.png",
-    "featured": false,
-    "is_game": false,
     "github_url": "https://github.com/lvampa/april14_triangletracker_javascript",
     "project_url": "triangle/triangle.html"
   },
   {
-    "id": 5,
+    "id": 1,
+    "is_post":"false",
     "name":"Repeat Word Counter",
     "tagline":"Hello hello hello world",
     "short_description": "This Count Repeats app with take a string of words as an input as well as a single word to search for. It will then output the number of times that word appears in the string. It was completed using PHP, Silex version 1.0, Twig version 1.1, and tested in PHPUnit 4.5.",
     "long_description": "This Count Repeats app with take a string of words as an input as well as a single word to search for. It will then output the number of times that word appears in the string. It was completed using PHP, Silex version 1.0, Twig version 1.1, and tested in PHPUnit 4.5. The project was speced out in plain english before test were written.",
     "image": "repeat.png",
-    "featured": false,
-    "is_game": false,
     "github_url": "https://github.com/lvampa/Assessment_march13_CountRepeats",
     "project_url": "repeat/web/index.php"
   }
