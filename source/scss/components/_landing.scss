@@ -80,7 +80,41 @@
 */
 
 .landing-post {
+
+  h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  p {
+    line-height: 1.3;
+    margin-bottom: 20px;
+  }
+
+  hr {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
+  li {
+    line-height: 1.3;
+    padding: 0 0 5px 5px;
+  }
+
+  ol {
+    padding-bottom: 15px;
+  }
+
+  .date {
+    text-align: right;
+  }
+
   .code {
+    background: $c-code-background;
+    border-radius: 2px;
     display: block;
+    line-height: 1.3;
+    margin: 15px 0;
+    padding: 10px;
   }
 }

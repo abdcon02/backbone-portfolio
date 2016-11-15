@@ -41,7 +41,7 @@ $(document).ready(function() {
             // FIXME not proud of this
             $('#content div:first').trigger('terminate');
 
-            if (path == "resume") {
+            if ("resume" == path) {
               new app.ResumeView;
             } else {
               new app.WorkView({collection: new app.WorkCollection});
