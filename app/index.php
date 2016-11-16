@@ -52,6 +52,7 @@
                 <div class='work-item-content'>
                     <h3><%= name %></h3>
                     <h4 class="tagline"><%= tagline %></h4>
+                    <p class="date"><%= date %>
                     <p><%= short_description %></p>
                 </div>
             </div>
@@ -60,8 +61,8 @@
         <script type="text/template" class="post-landing-template">
             <div class="landing-post">
                 <div class="post-content">
-                    <%= title %>
-                    <p><%= date %></p>
+                    <h1><%= name %></h1>
+                    <p>Post date: <%= date %></p>
                     <%= content %>
                 </div>
                 <div class="post-actions">

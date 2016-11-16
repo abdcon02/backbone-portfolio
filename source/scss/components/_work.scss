@@ -36,6 +36,13 @@
     display: none;
   }
 
+  &:not(.post) {
+    .tagline,
+    .date {
+      display: none;
+    }
+  }
+
   h3 {
     margin-bottom: 10px;
     text-align: center;

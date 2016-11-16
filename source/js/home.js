@@ -82,7 +82,6 @@ $(document).ready(function() {
           long_description: "default",
           image: "default.png",
           is_game: false,
-          featured: false,
           github_url: "default",
           project_url: "default"
         }
@@ -111,7 +110,7 @@ $(document).ready(function() {
             var id = $(e.target).closest('.work-item').data('id');
             var clickedModel = this.collection.get(id)
             this.remove();
-            clickedModel.get('is_post') ? new app.PostLandingView({model: clickedModel}) : new app.ItemLandingView({model: clickedModel}) ;
+            "true" === clickedModel.get('is_post') ? new app.PostLandingView({model: clickedModel}) : new app.ItemLandingView({model: clickedModel}) ;
         },
 
         initialize: function() {
@@ -128,7 +127,7 @@ $(document).ready(function() {
                 var json = model.toJSON();
                 app.buildImageHelper(json);
                 // create post class
-                json.workClass = json.featured ? 'post' : 'project';
+                json.workClass = ("true" === json.is_post) ? 'post' : 'project';
                 var html = scope.template(json);
                 scope.$el.append(html);
             });
