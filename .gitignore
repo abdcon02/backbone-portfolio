@@ -1,8 +1,9 @@
 
 # For now, just track compiled assets until I decide to install Node on the server.
 ### Compiled Assets
-css/
-js/
+#tracking in the production branch
+#css/
+#js/
 
 ### Images
 #images/*
