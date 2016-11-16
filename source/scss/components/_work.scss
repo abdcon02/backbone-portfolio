@@ -20,7 +20,7 @@
 .work-collection {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .work-item {
@@ -47,20 +47,25 @@
     margin-bottom: 10px;
     text-align: center;
   }
+}
 
-  h4 {
-    margin-bottom: 15px;
-    text-align: center;
-  }
+.tagline {
+  margin-bottom: 15px;
+  text-align: center;
 }
 
 .work-item.post {
   .tagline {
-    display: inline-block;
+    display: block;
   }
 
   .work-item-image {
     display: none;
+  }
+
+  .date {
+    text-align: right;
+    margin-bottom: 15px;
   }
 }
 
@@ -70,17 +75,20 @@
 }
 
 .work-item-content {
-  padding: 15px;
+  display: flex;
+  flex-flow: column nowrap;
   flex: 1 1 100%;
+  justify-content: center;;
+  padding: 15px;
 }
 
-@media screen and (min-width: $bp-small) {
+@media screen and (min-width: $bp-small) and (max-width: $bp-medium - 1){
 
   .work-item {
-    flex: 0 1 calc(50% - (#{$work-item-gutter} / 2);
+    @include flex-row(2,1);
     margin-bottom: $work-item-gutter;
 
-    &:nth-of-type(2n) {
+    &:nth-of-type(2n - 1) {
       margin-right: $work-item-gutter;
     }
   }
@@ -88,11 +96,20 @@
 
 @media screen and (min-width: $bp-medium) {
   .work-item {
-    flex: 1 1 calc(30% - #{$work-item-gutter});
+    @include flex-row(3,2);
     margin-bottom: $work-item-gutter;
 
     &:not(:nth-of-type(3n)) {
       margin-right: $work-item-gutter;
+    }
+  }
+}
+
+@media screen and (min-width: $bp-large) {
+  .work-item.post {
+
+    .tagline {
+      margin: 20px 0 50px 0;
     }
   }
 }

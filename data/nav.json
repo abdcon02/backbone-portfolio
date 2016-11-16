@@ -1,13 +1,13 @@
 [
   {
-    "name":"Work",
+    "name":"Projects",
     "order": "1",
-    "path": "work"
+    "path": "projects"
   },
   {
     "name":"Posts",
     "order": "2",
-    "path": "resume"
+    "path": "posts"
   },
   {
     "name":"Resume",
