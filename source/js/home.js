@@ -38,20 +38,21 @@ $(document).ready(function() {
     onClick: function(e) {
       var path = $(e.target).data('path');
 
-      // OPTIMIZE not proud of this
+      // OPTIMIZE not proud of this navigation or filtering
       $('#content div:first').trigger('terminate');
 
       if ("resume" == path) {
-        new app.ResumeView;
-      } else if ("posts" === path) {
-        var allPosts = new app.WorkCollection;
-        allPosts.filterPosts = true;
-        new app.WorkView({collection: allPosts});
-      } else if ("projects" === path) {
-        var allProjects = new app.WorkCollection;
-        allProjects.filterProjects = true;
-        new app.WorkView({collection: allProjects});
+        return new app.ResumeView;
       }
+
+      var allWork = new app.WorkCollection;
+
+      if ("posts" === path) {
+        allWork.filterPosts = true;
+      } else if ("projects" === path) {
+        allWork.filterProjects = true;
+      }
+      return new app.WorkView({collection: allWork});
     },
 
     initialize: function() {
