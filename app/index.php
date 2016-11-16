@@ -28,9 +28,7 @@
             </div>
             <div class="footer">
                 <div class="social-icons">
-                    <a href="#" class="icon icon-linkedin">Linkedin</a>
-                    <a href="#" class="octicon octicon-mark-github"></a>
-                    <span class="mega-octicon octicon-mark-github"></span>
+                    <a href="https://www.linkedin.com/in/connorabdelnoor" target="_blank" class="icon icon-linkedin">Linkedin</a>
                 </div>
             </div>
         </div>
