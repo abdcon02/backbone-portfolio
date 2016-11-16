@@ -77,7 +77,7 @@ $(document).ready(function() {
           is_post:"true",
           name:"Default",
           date:"Begining of Time",
-          tagline: "default",
+          tagline: "default tagline",
           short_description: "default",
           long_description: "default",
           image: "default.png",

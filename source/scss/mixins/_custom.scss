@@ -7,3 +7,11 @@
     }
   }
 }
+
+@mixin flex-row($items, $gutters) {
+  flex: 0 1 calc(
+    100% / #{$items} - (
+      #{$work-item-gutter} * #{$gutters} / #{$items}
+    )
+  );
+}
