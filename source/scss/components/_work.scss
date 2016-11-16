@@ -12,7 +12,7 @@
 
 /* ----- Work collection layout ------
       .work-collection
-        .work-item (featured)
+        .work-item
           .work-item-image
           .work-item-content
 */
@@ -32,7 +32,11 @@
   cursor: pointer;
   margin-bottom: 20px;
 
-  h1 {
+  .tagline {
+    display: none;
+  }
+
+  h3 {
     margin-bottom: 10px;
     text-align: center;
   }
@@ -43,18 +47,19 @@
   }
 }
 
-.work-item:not(.featured) {
-  .work-item-image {
-    width: 100%;
+.work-item.post {
+  .tagline {
+    display: inline-block;
   }
 
-  h4 {
+  .work-item-image {
     display: none;
   }
 }
 
 .work-item-image {
   flex: 1 1 100%;
+  width: 100%;
 }
 
 .work-item-content {
@@ -65,44 +70,22 @@
 @media screen and (min-width: $bp-small) {
 
   .work-item {
-    flex: 0 1 calc(50% - (#{$work-item-gutter-small} / 2);
-    margin-bottom: $work-item-gutter-small;
+    flex: 0 1 calc(50% - (#{$work-item-gutter} / 2);
+    margin-bottom: $work-item-gutter;
 
     &:nth-of-type(2n) {
-      margin-right: $work-item-gutter-small;
-    }
-
-    &:not(.featured) {
-      max-width: calc(50% - (#{$work-item-gutter-small} / 2));
-    }
-  }
-
-  .work-item.featured {
-    flex: 1 1 100%;
-
-    .work-item-image {
-      flex: 1 1 45%;
       margin-right: $work-item-gutter;
-    }
-
-    .work-item-content {
-      flex: 1 1 45%;
-      padding-left: 0;
     }
   }
 }
 
 @media screen and (min-width: $bp-medium) {
   .work-item {
-    flex: 1 1 calc(50% - #{$work-item-gutter});
+    flex: 1 1 calc(30% - #{$work-item-gutter});
     margin-bottom: $work-item-gutter;
 
-    &:nth-of-type(2n) {
+    &:not(:nth-of-type(3n)) {
       margin-right: $work-item-gutter;
-    }
-
-    &:not(.featured) {
-      max-width: calc(50% - (#{$work-item-gutter} / 2));
     }
   }
 }

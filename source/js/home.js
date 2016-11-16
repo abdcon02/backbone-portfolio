@@ -76,12 +76,13 @@ $(document).ready(function() {
         defaults: {
           is_post:"true",
           name:"Default",
+          date:"Begining of Time",
           tagline: "default",
           short_description: "default",
           long_description: "default",
           image: "default.png",
-          featured: false,
           is_game: false,
+          featured: false,
           github_url: "default",
           project_url: "default"
         }
@@ -126,8 +127,8 @@ $(document).ready(function() {
             this.collection.each(function(model) {
                 var json = model.toJSON();
                 app.buildImageHelper(json);
-                // create featured class
-                json.featured ? json.featuredClass = 'featured' : json.featuredClass = '';
+                // create post class
+                json.workClass = json.featured ? 'post' : 'project';
                 var html = scope.template(json);
                 scope.$el.append(html);
             });

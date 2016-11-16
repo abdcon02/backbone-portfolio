@@ -45,12 +45,12 @@
         </script>
         <!--  Worl Landing Template -->
         <script type="text/template" class="work-collection-template">
-            <div data-id="<%= id %>" class="work-item <%= featuredClass %>">
+            <div data-id="<%= id %>" class="work-item <%= workClass %>">
                 <div class="work-item-image">
                     <img src="<%= image %>" alt="work image" />
                 </div>
                 <div class='work-item-content'>
-                    <h1><%= name %></h1>
+                    <h3><%= name %></h3>
                     <h4 class="tagline"><%= tagline %></h4>
                     <p><%= short_description %></p>
                 </div>
@@ -61,6 +61,7 @@
             <div class="landing-post">
                 <div class="post-content">
                     <%= title %>
+                    <p><%= date %></p>
                     <%= content %>
                 </div>
                 <div class="post-actions">
