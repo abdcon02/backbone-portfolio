@@ -2,14 +2,25 @@
 <html xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
+        <meta name="description" content="A portfolio and place for notes."/>
+        <meta name="author" content="Connor Abdelnoor"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <title>Connor Abdelnoor</title>
+        <meta name="robots" content="INDEX,FOLLOW">
+        <title>Connor's Portfolio</title>
         <link rel="stylesheet" href="css/styles.css" type="text/css"/>
         <script src="lib/jquery-1.12.4.min.js"></script>
         <script src="lib/underscore-1.8.3.min.js"></script>
         <script src="lib/backbone-1.3.3-min.js"></script>
-        <!-- OPTIMIZE host locally -->
+        <!-- OPTIMIZE possible host locally -->
         <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:400,700" rel="stylesheet">
+        <!-- Google Analytics -->
+        <script>
+            window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+            ga('create', 'UA-87611307-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script async src='https://www.google-analytics.com/analytics.js'></script>
+        <!-- End Google Analytics -->
     </head>
     <body>
     <!-- OPTIMIZE there has to be a better way-->
