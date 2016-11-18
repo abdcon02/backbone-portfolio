@@ -90,7 +90,8 @@ $(document).ready(function() {
       image: "default.png",
       is_game: false,
       github_url: "default",
-      project_url: "default"
+      project_url: "default",
+      project_without_url: false
     }
   });
 
@@ -242,6 +243,7 @@ $(document).ready(function() {
       var json = this.model.toJSON();
       app.buildImageHelper(json);
       json.visit_text = json.is_game ? "Play Game" : "View App";
+      json.load_project_class = json.project_without_url ? "hidden" : "";
       var html = this.template(json);
       this.$el.append(html);
     }
