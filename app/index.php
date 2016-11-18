@@ -94,7 +94,7 @@
                 </div>
                 <div class="landing-content">
                     <div class="landing-actions">
-                        <div class="button load-project"><a href="#"><%= visit_text %></a></div>
+                        <div class="button load-project <%= load_project_class %>"><a href="#"><%= visit_text %></a></div>
                         <div class="button load-github"><a href="<%= github_url %>" target="_blank">View on Github</a></div>
                     </div>
                     <div class='landing-info'>

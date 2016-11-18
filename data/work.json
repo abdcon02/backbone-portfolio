@@ -1,5 +1,16 @@
 [
   {
+    "id": 7,
+    "is_post":"false",
+    "name":"Readable Bash Prompt",
+    "tagline": "Take it out back and execute it",
+    "short_description": "Bash, the language behind the Unix Shell program that runs in most terminals doesn't always get along with me. This customization is a way to make development just a little bit easier.",
+    "long_description": "As a developer, the terminal is one of my most essential tools. Bash, the language behind the Unix Shell program that runs in most terminals doesn't always get along with me. This customization is a way to make development just a little bit easier by adding colors, the current directory path, and the git branch to the prompt. It also uses a bash function to check if git is initialized in the current directory. Checkout out the README for more information.",
+    "github_url": "https://github.com/lvampa/readable-bash-prompt",
+    "image": "terminal.png",
+    "project_without_url": true
+  },
+  {
     "id": 6,
     "date": "November 14, 2016",
     "name":"Setting up a TLS Cert on a shared server using Let's Encrypt",
